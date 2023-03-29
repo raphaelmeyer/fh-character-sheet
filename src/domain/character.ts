@@ -1,5 +1,13 @@
+export type CharacterClass = 'deathwalker';
+
 export interface Character {
-  name: string
-  xp: number
-  level: number
+  id: number;
+  character: CharacterClass;
+  name: string;
+  xp: number;
+  perks: number[];
 }
+
+export const characters: Record<CharacterClass, string> = {
+  deathwalker: 'Valrath Deathwalker'
+};

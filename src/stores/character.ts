@@ -1,12 +1,21 @@
-import { ref, computed } from 'vue'
-import { defineStore } from 'pinia'
+import type { Character } from '@/domain/character';
+import { defineStore } from 'pinia';
 
-export const useCounterStore = defineStore('character', () => {
-  const count = ref(0)
-  const doubleCount = computed(() => count.value * 2)
-  function increment() {
-    count.value++
+interface State {
+  characters: Character[];
+}
+
+export const useCharacterStore = defineStore('character', {
+  state: (): State => {
+    return {
+      characters: [{ id: 1, character: 'deathwalker', name: 'Kagesawa Glay', xp: 88, perks: [] }]
+    };
+  },
+  getters: {
+    fetchCharacter: (state) => {
+      return (id: number) => {
+        return state.characters.find((ch) => ch.id === id);
+      };
+    }
   }
-
-  return { count, doubleCount, increment }
-})
+});

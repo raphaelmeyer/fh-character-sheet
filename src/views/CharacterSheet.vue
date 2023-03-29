@@ -1,23 +1,31 @@
 <script setup lang="ts">
-import type { Character } from '@/domain/character'
+import { ref, watchEffect } from 'vue';
+import { useRoute } from 'vue-router';
 
-import ExperienceSection from '@/components/ExperienceSection.vue'
-import GoldSection from '@/components/GoldSection.vue'
-import MasteriesSection from '@/components/MasteriesSection.vue'
-import MenuBar from '@/components/MenuBar.vue'
-import OverviewSection from '@/components/OverviewSection.vue'
-import PerksSection from '@/components/PerksSection.vue'
-import ResourcesSection from '@/components/ResourcesSection.vue'
+import type { Character } from '@/domain/character';
 
-const character: Character = {
-  name: 'Kagesawa Glay',
-  xp: 85,
-  level: 2
-}
+import { useCharacterStore } from '@/stores/character';
+
+import ExperienceSection from '@/components/ExperienceSection.vue';
+import GoldSection from '@/components/GoldSection.vue';
+import MasteriesSection from '@/components/MasteriesSection.vue';
+import MenuBar from '@/components/MenuBar.vue';
+import OverviewSection from '@/components/OverviewSection.vue';
+import PerksSection from '@/components/PerksSection.vue';
+import ResourcesSection from '@/components/ResourcesSection.vue';
+
+const route = useRoute();
+const store = useCharacterStore();
+
+const character = ref<Character>();
+
+watchEffect(() => {
+  character.value = store.characters.find((ch) => ch.id === Number(route.params.id));
+});
 </script>
 
 <template>
-  <v-app>
+  <v-app v-if="character">
     <MenuBar :character="character"></MenuBar>
     <v-main>
       <v-container>

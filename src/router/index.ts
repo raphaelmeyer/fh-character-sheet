@@ -1,15 +1,20 @@
-import CharacterSheet from '@/views/CharacterSheet.vue'
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router';
+
+import CharacterSheet from '@/views/CharacterSheet.vue';
+import SelectCharacter from '@/views/SelectCharacter.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
-      name: 'home',
+      component: SelectCharacter
+    },
+    {
+      path: '/character/:id',
       component: CharacterSheet
     }
   ]
-})
+});
 
-export default router
+export default router;
