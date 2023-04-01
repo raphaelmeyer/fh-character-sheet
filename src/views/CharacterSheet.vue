@@ -36,7 +36,7 @@ watchEffect(() => {
         </v-row>
         <v-row>
           <v-col>
-            <ExperienceSection></ExperienceSection>
+            <ExperienceSection :char-id="character.id"></ExperienceSection>
           </v-col>
           <v-col>
             <GoldSection></GoldSection>
