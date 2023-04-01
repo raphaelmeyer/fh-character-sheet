@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref } from 'vue';
 
-import ItemCounter from './ItemCounter.vue'
+import ItemCounter from './ItemCounter.vue';
 
-const xp = ref(0)
+const xp = ref(0);
 
 function change(by: number): void {
-  xp.value = Math.max(0, xp.value + by)
+  xp.value = Math.max(0, xp.value + by);
 }
 </script>
 
