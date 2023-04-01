@@ -15,5 +15,8 @@ defineProps<{ character: Character }>();
       </v-avatar>
       <span class="ml-4">{{ character.name }}</span>
     </v-app-bar-title>
+    <template #append>
+      <v-btn icon="mdi-home" :to="{ path: '/' }"></v-btn>
+    </template>
   </v-app-bar>
 </template>

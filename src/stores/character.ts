@@ -7,9 +7,7 @@ interface State {
 
 export const useCharacterStore = defineStore('character', {
   state: (): State => {
-    return {
-      characters: [{ id: 1, character: 'deathwalker', name: 'Kagesawa Glay', xp: 88, perks: [] }]
-    };
+    return { characters: [] };
   },
   getters: {
     fetchCharacter: (state) => {
