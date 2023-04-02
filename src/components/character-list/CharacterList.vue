@@ -1,18 +1,24 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 
+import NewCharacterDialog from './NewCharacterDialog.vue';
+
 import { useCharacterStore } from '@/stores/character';
 
 import { colors } from '@/domain/colors';
 import { avatars } from '@/domain/icons';
-import { characters, type CharacterClass } from '@/domain/character';
+import type { CharacterClass } from '@/domain/character';
 
 const store = useCharacterStore();
 
 const newCharDialog = ref(false);
 
-function createCharacter(character: CharacterClass): void {
-  store.createCharacter(character, 'Rumpelstilzli');
+function onCreate(character: CharacterClass, name: string): void {
+  store.createCharacter(character, name);
+  newCharDialog.value = false;
+}
+
+function onCancel(): void {
   newCharDialog.value = false;
 }
 </script>
@@ -53,29 +59,6 @@ function createCharacter(character: CharacterClass): void {
     </v-container>
   </v-main>
 
-  <v-dialog v-model="newCharDialog">
-    <v-card>
-      <v-card-item>
-        <v-card-title>Select Character Class</v-card-title>
-      </v-card-item>
-      <v-card-text>
-        <v-container>
-          <v-row v-for="(name, character) in characters" :key="character">
-            <v-col>
-              <v-card :color="colors[character].primary" @click="createCharacter(character)">
-                <v-card-item>
-                  <v-card-title>
-                    <v-avatar :color="colors[character].background">
-                      <v-img :src="avatars[character]" max-height="1.5em" max-width="1.5em"></v-img>
-                    </v-avatar>
-                    <span class="ml-4">{{ name }}</span>
-                  </v-card-title>
-                </v-card-item>
-              </v-card>
-            </v-col>
-          </v-row>
-        </v-container>
-      </v-card-text>
-    </v-card>
-  </v-dialog>
+  <NewCharacterDialog :dialog="newCharDialog" @create="onCreate" @cancel="onCancel">
+  </NewCharacterDialog>
 </template>
