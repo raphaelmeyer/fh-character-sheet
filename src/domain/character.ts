@@ -1,4 +1,9 @@
-export type CharacterClass = 'deathwalker';
+export type CharacterClass =
+  | 'bannerspear'
+  | 'blinkblade'
+  | 'boneshaper'
+  | 'deathwalker'
+  | 'geminate';
 
 export interface Character {
   id: number;
@@ -9,5 +14,9 @@ export interface Character {
 }
 
 export const characters: Record<CharacterClass, string> = {
-  deathwalker: 'Valrath Deathwalker'
+  bannerspear: 'Human Banner Spear',
+  blinkblade: 'Quatryl Blinkblade',
+  boneshaper: 'Aesther Boneshaper',
+  deathwalker: 'Valrath Deathwalker',
+  geminate: 'Harrower Geminate'
 };
