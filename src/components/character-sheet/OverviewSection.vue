@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed } from 'vue';
 
-import type { Character } from '@/domain/character'
+import type { Mercenary } from '@/domain/character';
 
-const props = defineProps<{ character: Character }>()
+const props = defineProps<{ mercenary: Mercenary }>();
 
 interface Level {
-  id: number
-  xp: number
+  id: number;
+  xp: number;
 }
 
 const levels: Level[] = [
@@ -20,11 +20,11 @@ const levels: Level[] = [
   { id: 7, xp: 345 },
   { id: 8, xp: 420 },
   { id: 9, xp: 500 }
-]
+];
 
-const charLevel = computed(() => {
-  return levels.reduce((id, l) => (l.xp <= props.character.xp ? l.id : id), 0)
-})
+const mercenaryLevel = computed(() => {
+  return levels.reduce((id, l) => (l.xp <= props.mercenary.xp ? l.id : id), 0);
+});
 </script>
 
 <template>
@@ -37,8 +37,8 @@ const charLevel = computed(() => {
         <v-timeline-item
           v-for="level in levels"
           :key="level.id"
-          :dot-color="level.xp <= character.xp ? 'grey-darken-3' : 'grey-lighten-2'"
-          :size="level.id === charLevel ? 'small' : 'x-small'"
+          :dot-color="level.xp <= mercenary.xp ? 'grey-darken-3' : 'grey-lighten-2'"
+          :size="level.id === mercenaryLevel ? 'small' : 'x-small'"
           fill-dot
         >
           <template #icon>{{ level.id }}</template>

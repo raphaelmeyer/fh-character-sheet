@@ -1,14 +1,14 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
 import CharacterSheet from '@/views/CharacterSheet.vue';
-import SelectCharacter from '@/views/SelectCharacter.vue';
+import MercenaryList from '@/views/MercenaryList.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
-      component: SelectCharacter
+      component: MercenaryList
     },
     {
       path: '/character/:id',

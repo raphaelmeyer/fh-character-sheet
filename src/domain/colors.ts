@@ -1,11 +1,11 @@
-import type { CharacterClass } from './character';
+import type { Character } from './character';
 
 export interface Colors {
   primary: string;
   background: string;
 }
 
-export const colors: Record<CharacterClass, Colors> = {
+export const colors: Record<Character, Colors> = {
   bannerspear: {
     primary: 'yellow-darken-1',
     background: 'yellow-lighten-3'

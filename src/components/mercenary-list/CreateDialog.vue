@@ -2,7 +2,7 @@
 import { ref, watchEffect } from 'vue';
 
 import { avatars } from '@/domain/icons';
-import { characters, type CharacterClass } from '@/domain/character';
+import { characters, type Character } from '@/domain/character';
 import { colors } from '@/domain/colors';
 
 const props = defineProps<{ dialog: boolean }>();
@@ -11,11 +11,11 @@ const name = ref('');
 const dialog = ref(false);
 
 const emit = defineEmits<{
-  (e: 'create', character: CharacterClass, name: string): void;
+  (e: 'create', character: Character, name: string): void;
   (e: 'cancel'): void;
 }>();
 
-function submit(character: CharacterClass): void {
+function submit(character: Character): void {
   emit('create', character, name.value);
   name.value = '';
 }
@@ -34,7 +34,7 @@ watchEffect(() => {
   <v-dialog v-model="dialog" @click:outside="cancel">
     <v-card>
       <v-card-item>
-        <v-card-title>Select Character Class</v-card-title>
+        <v-card-title>Select Character</v-card-title>
       </v-card-item>
       <v-card-text>
         <v-container>
@@ -44,7 +44,7 @@ watchEffect(() => {
             </v-col>
           </v-row>
           <v-row>
-            <v-col v-for="(className, character) in characters" :key="character" cols="4">
+            <v-col v-for="(characterName, character) in characters" :key="character" cols="4">
               <v-card
                 :color="colors[character].primary"
                 :disabled="!name"
@@ -55,7 +55,7 @@ watchEffect(() => {
                     <v-avatar :color="colors[character].background">
                       <v-img :src="avatars[character]" max-height="1.5em" max-width="1.5em"></v-img>
                     </v-avatar>
-                    <span class="ml-4">{{ className }}</span>
+                    <span class="ml-4">{{ characterName }}</span>
                   </v-card-title>
                 </v-card-item>
               </v-card>

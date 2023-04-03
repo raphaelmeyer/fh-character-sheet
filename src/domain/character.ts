@@ -1,19 +1,14 @@
-export type CharacterClass =
-  | 'bannerspear'
-  | 'blinkblade'
-  | 'boneshaper'
-  | 'deathwalker'
-  | 'geminate';
+export type Character = 'bannerspear' | 'blinkblade' | 'boneshaper' | 'deathwalker' | 'geminate';
 
-export interface Character {
+export interface Mercenary {
   id: number;
-  character: CharacterClass;
+  character: Character;
   name: string;
   xp: number;
   perks: number[];
 }
 
-export const characters: Record<CharacterClass, string> = {
+export const characters: Record<Character, string> = {
   bannerspear: 'Human Banner Spear',
   blinkblade: 'Quatryl Blinkblade',
   boneshaper: 'Aesther Boneshaper',

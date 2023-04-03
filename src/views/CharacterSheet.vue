@@ -2,41 +2,41 @@
 import { ref, watchEffect } from 'vue';
 import { useRoute } from 'vue-router';
 
-import type { Character } from '@/domain/character';
+import type { Mercenary } from '@/domain/character';
 
-import { useCharacterStore } from '@/stores/character';
+import { useMercenaryStore } from '@/stores/mercenary';
 
 import ExperienceSection from '@/components/character-sheet/ExperienceSection.vue';
 import GoldSection from '@/components/character-sheet/GoldSection.vue';
 import MasteriesSection from '@/components/character-sheet/MasteriesSection.vue';
-import MenuBar from '@/components/character-sheet/SheetMenuBar.vue';
+import MenuBar from '@/components/character-sheet/MenuBar.vue';
 import OverviewSection from '@/components/character-sheet/OverviewSection.vue';
 import PerksSection from '@/components/character-sheet/PerksSection.vue';
 import ResourcesSection from '@/components/character-sheet/ResourcesSection.vue';
 
 const route = useRoute();
-const store = useCharacterStore();
+const store = useMercenaryStore();
 
-const character = ref<Character>();
+const mercenary = ref<Mercenary>();
 
 watchEffect(() => {
-  character.value = store.characters.find((ch) => ch.id === Number(route.params.id));
+  mercenary.value = store.mercenaries.find((ch) => ch.id === Number(route.params.id));
 });
 </script>
 
 <template>
-  <v-app v-if="character">
-    <MenuBar :character="character"></MenuBar>
+  <v-app v-if="mercenary">
+    <MenuBar :mercenary="mercenary"></MenuBar>
     <v-main>
       <v-container>
         <v-row>
           <v-col>
-            <OverviewSection :character="character"></OverviewSection>
+            <OverviewSection :mercenary="mercenary"></OverviewSection>
           </v-col>
         </v-row>
         <v-row>
           <v-col>
-            <ExperienceSection :char-id="character.id"></ExperienceSection>
+            <ExperienceSection :char-id="mercenary.id"></ExperienceSection>
           </v-col>
           <v-col>
             <GoldSection></GoldSection>

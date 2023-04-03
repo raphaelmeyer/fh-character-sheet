@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import ItemCounter from './ItemCounter.vue'
+import ItemCounter from './ItemCounter.vue';
 </script>
 
 <template>
