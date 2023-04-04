@@ -16,6 +16,10 @@ const store = useMercenaryStore();
 function changeXp(diff: number): void {
   store.changeXp(props.mercenary.id, diff);
 }
+
+function changeGold(diff: number): void {
+  store.changeGold(props.mercenary.id, diff);
+}
 </script>
 
 <template>
@@ -34,7 +38,11 @@ function changeXp(diff: number): void {
         ></ExperienceSection>
       </v-col>
       <v-col>
-        <GoldSection :mercenary-id="mercenary.id"></GoldSection>
+        <GoldSection
+          :character="mercenary.character"
+          :gold="mercenary.gold"
+          @change="changeGold"
+        ></GoldSection>
       </v-col>
     </v-row>
     <v-row>
