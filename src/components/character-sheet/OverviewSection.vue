@@ -1,13 +1,12 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 
-import type { Mercenary } from '@/domain/character';
-import { characters } from '@/domain/character';
+import { characters, type Character } from '@/domain/character';
 import { colors } from '@/domain/colors';
 
-const props = defineProps<{ mercenary: Mercenary }>();
+const props = defineProps<{ name: string; character: Character; xp: number }>();
 
-const color = computed(() => colors[props.mercenary.character]);
+const color = computed(() => colors[props.character]);
 
 interface Level {
   id: number;
@@ -26,23 +25,23 @@ const levels: Level[] = [
   { id: 9, xp: 500 }
 ];
 
-const mercenaryLevel = computed(() => {
-  return levels.reduce((id, l) => (l.xp <= props.mercenary.xp ? l.id : id), 0);
+const levelId = computed(() => {
+  return levels.reduce((id, level) => (level.xp <= props.xp ? level.id : id), 0);
 });
 </script>
 
 <template>
-  <v-card v-if="mercenary" :color="color.background">
+  <v-card :color="color.background">
     <v-card-item>
-      <v-card-title>{{ characters[mercenary.character] }} </v-card-title>
+      <v-card-title>{{ characters[character] }}</v-card-title>
     </v-card-item>
     <v-card-text>
       <v-timeline direction="horizontal" truncate-line="both" side="end">
         <v-timeline-item
           v-for="level in levels"
           :key="level.id"
-          :dot-color="level.xp <= mercenary.xp ? color.primary : 'grey-lighten-2'"
-          :size="level.id === mercenaryLevel ? 'small' : 'x-small'"
+          :dot-color="level.xp <= xp ? color.primary : 'grey-lighten-2'"
+          :size="level.id === levelId ? 'small' : 'x-small'"
           fill-dot
         >
           <template #icon>{{ level.id }}</template>

@@ -26,7 +26,11 @@ function changeGold(diff: number): void {
   <v-container>
     <v-row>
       <v-col>
-        <OverviewSection :mercenary="mercenary"></OverviewSection>
+        <OverviewSection
+          :name="mercenary.name"
+          :character="mercenary.character"
+          :xp="mercenary.xp"
+        ></OverviewSection>
       </v-col>
     </v-row>
     <v-row>
