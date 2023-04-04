@@ -4,13 +4,8 @@ import { useRoute } from 'vue-router';
 
 import { useMercenaryStore } from '@/stores/mercenary';
 
-import ExperienceSection from '@/components/character-sheet/ExperienceSection.vue';
-import GoldSection from '@/components/character-sheet/GoldSection.vue';
-import MasteriesSection from '@/components/character-sheet/MasteriesSection.vue';
+import CharacterSheetContent from '@/components/character-sheet/CharacterSheetContent.vue';
 import MenuBar from '@/components/character-sheet/MenuBar.vue';
-import OverviewSection from '@/components/character-sheet/OverviewSection.vue';
-import PerksSection from '@/components/character-sheet/PerksSection.vue';
-import ResourcesSection from '@/components/character-sheet/ResourcesSection.vue';
 
 const route = useRoute();
 const store = useMercenaryStore();
@@ -22,36 +17,7 @@ const mercenary = computed(() => store.mercenaries.find((ch) => ch.id === Number
   <v-app v-if="mercenary">
     <MenuBar :mercenary="mercenary"></MenuBar>
     <v-main>
-      <v-container>
-        <v-row>
-          <v-col>
-            <OverviewSection :mercenary="mercenary"></OverviewSection>
-          </v-col>
-        </v-row>
-        <v-row>
-          <v-col>
-            <ExperienceSection :mercenary-id="mercenary.id"></ExperienceSection>
-          </v-col>
-          <v-col>
-            <GoldSection :mercenary-id="mercenary.id"></GoldSection>
-          </v-col>
-        </v-row>
-        <v-row>
-          <v-col>
-            <ResourcesSection></ResourcesSection>
-          </v-col>
-        </v-row>
-        <v-row>
-          <v-col>
-            <PerksSection></PerksSection>
-          </v-col>
-        </v-row>
-        <v-row>
-          <v-col>
-            <MasteriesSection></MasteriesSection>
-          </v-col>
-        </v-row>
-      </v-container>
+      <CharacterSheetContent :mercenary="mercenary"></CharacterSheetContent>
     </v-main>
   </v-app>
 </template>
