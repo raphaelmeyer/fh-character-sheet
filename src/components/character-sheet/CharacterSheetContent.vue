@@ -51,7 +51,7 @@ function changeGold(diff: number): void {
     </v-row>
     <v-row>
       <v-col>
-        <ResourcesSection></ResourcesSection>
+        <ResourcesSection :character="mercenary.character"></ResourcesSection>
       </v-col>
     </v-row>
     <v-row>

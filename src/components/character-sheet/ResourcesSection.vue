@@ -1,30 +1,24 @@
 <script setup lang="ts">
-import { resources as icons } from '@/domain/icons';
+import type { Character } from '@/domain/character';
+import { colors } from '@/domain/colors';
 
-import ItemCounter from './ItemCounter.vue';
+import ResourceItem from './ResourceItem.vue';
+
+defineProps<{ character: Character }>();
 </script>
 
 <template>
-  <v-card color="grey-lighten-3">
+  <v-card :color="colors[character].background">
     <v-card-item>
       <v-card-title>Resources</v-card-title>
     </v-card-item>
     <v-card-text>
       <v-row>
-        <v-col cols="1" class="d-flex justify-center align-center">
-          <v-img :src="icons.lumber" max-width="1.5em"></v-img>
-        </v-col>
-        <v-col> <item-counter :value="0"> </item-counter> </v-col>
+        <ResourceItem resource="lumber"></ResourceItem>
         <v-divider vertical></v-divider>
-        <v-col cols="1" class="d-flex justify-center align-center">
-          <v-img :src="icons.metal" max-width="1.5em"></v-img>
-        </v-col>
-        <v-col> <item-counter :value="0"> </item-counter> </v-col>
+        <ResourceItem resource="metal"></ResourceItem>
         <v-divider vertical></v-divider>
-        <v-col cols="1" class="d-flex justify-center align-center">
-          <v-img :src="icons.hide" max-width="1.5em"></v-img>
-        </v-col>
-        <v-col> <item-counter :value="0"> </item-counter> </v-col>
+        <ResourceItem resource="hide"></ResourceItem>
       </v-row>
       <v-row>
         <v-col>
@@ -32,36 +26,18 @@ import ItemCounter from './ItemCounter.vue';
         </v-col>
       </v-row>
       <v-row>
-        <v-col cols="1" class="d-flex justify-center align-center">
-          <v-img :src="icons.arrowvine" max-height="1.5em"></v-img>
-        </v-col>
-        <v-col> <item-counter :value="0"> </item-counter> </v-col>
+        <ResourceItem resource="arrowvine"></ResourceItem>
         <v-divider vertical></v-divider>
-        <v-col cols="1" class="d-flex justify-center align-center">
-          <v-img :src="icons.axenut" max-height="1.5em"></v-img>
-        </v-col>
-        <v-col> <item-counter :value="0"> </item-counter> </v-col>
+        <ResourceItem resource="axenut"></ResourceItem>
         <v-divider vertical></v-divider>
-        <v-col cols="1" class="d-flex justify-center align-center">
-          <v-img :src="icons.corpsecap" max-height="1.5em"></v-img>
-        </v-col>
-        <v-col> <item-counter :value="0"> </item-counter> </v-col>
+        <ResourceItem resource="corpsecap"></ResourceItem>
       </v-row>
       <v-row>
-        <v-col cols="1" class="d-flex justify-center align-center">
-          <v-img :src="icons.flamefruit" max-height="1.5em"></v-img>
-        </v-col>
-        <v-col> <item-counter :value="0"> </item-counter> </v-col>
+        <ResourceItem resource="flamefruit"></ResourceItem>
         <v-divider vertical></v-divider>
-        <v-col cols="1" class="d-flex justify-center align-center">
-          <v-img :src="icons.rockroot" max-height="1.5em"></v-img>
-        </v-col>
-        <v-col> <item-counter :value="0"> </item-counter> </v-col>
+        <ResourceItem resource="rockroot"></ResourceItem>
         <v-divider vertical></v-divider>
-        <v-col cols="1" class="d-flex justify-center align-center">
-          <v-img :src="icons.snowthistle" max-height="1.5em"></v-img>
-        </v-col>
-        <v-col> <item-counter :value="0"> </item-counter> </v-col>
+        <ResourceItem resource="snowthistle"></ResourceItem>
       </v-row>
     </v-card-text>
   </v-card>
