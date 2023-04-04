@@ -21,6 +21,11 @@
 		},
 		"[typescript][javascript][vue]": {
 			"editor.defaultFormatter": "esbenp.prettier-vscode"
+		},
+		"[vue]": {
+			"editor.codeActionsOnSave": {
+				"source.organizeImports": true
+			}
 		}
 	}
 }
