@@ -1,8 +1,6 @@
 <script setup lang="ts">
-import { ref, watchEffect } from 'vue';
+import { computed } from 'vue';
 import { useRoute } from 'vue-router';
-
-import type { Mercenary } from '@/domain/character';
 
 import { useMercenaryStore } from '@/stores/mercenary';
 
@@ -17,11 +15,7 @@ import ResourcesSection from '@/components/character-sheet/ResourcesSection.vue'
 const route = useRoute();
 const store = useMercenaryStore();
 
-const mercenary = ref<Mercenary>();
-
-watchEffect(() => {
-  mercenary.value = store.mercenaries.find((ch) => ch.id === Number(route.params.id));
-});
+const mercenary = computed(() => store.mercenaries.find((ch) => ch.id === Number(route.params.id)));
 </script>
 
 <template>
@@ -36,10 +30,10 @@ watchEffect(() => {
         </v-row>
         <v-row>
           <v-col>
-            <ExperienceSection :char-id="mercenary.id"></ExperienceSection>
+            <ExperienceSection :mercenary-id="mercenary.id"></ExperienceSection>
           </v-col>
           <v-col>
-            <GoldSection></GoldSection>
+            <GoldSection :mercenary-id="mercenary.id"></GoldSection>
           </v-col>
         </v-row>
         <v-row>

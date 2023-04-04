@@ -8,7 +8,7 @@ export interface Colors {
 export const colors: Record<Character, Colors> = {
   bannerspear: {
     primary: 'yellow-darken-1',
-    background: 'yellow-lighten-3'
+    background: 'yellow-lighten-4'
   },
   blinkblade: {
     primary: 'cyan-darken-1',

@@ -5,6 +5,7 @@ export interface Mercenary {
   character: Character;
   name: string;
   xp: number;
+  gold: number;
   perks: number[];
 }
 

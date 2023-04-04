@@ -1,22 +1,30 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { computed } from 'vue';
 
-import ItemCounter from './ItemCounter.vue'
+import { useMercenaryStore } from '@/stores/mercenary';
 
-const gold = ref(0)
+import { colors } from '@/domain/colors';
 
-function change(by: number): void {
-  gold.value = Math.max(0, gold.value + by)
+import ItemCounter from './ItemCounter.vue';
+
+const props = defineProps<{ mercenaryId: number }>();
+const store = useMercenaryStore();
+
+const gold = computed(() => store.mercenaryById(props.mercenaryId)?.gold ?? 0);
+const character = computed(() => store.mercenaryById(props.mercenaryId)?.character);
+
+function change(diff: number): void {
+  store.changeGold(props.mercenaryId, diff);
 }
 </script>
 
 <template>
-  <v-card color="grey-lighten-3">
+  <v-card v-if="character" :color="colors[character].background">
     <v-card-item>
       <v-card-title> Gold </v-card-title>
     </v-card-item>
     <v-card-text>
-      <ItemCounter :value="gold" :has-by-five="true" @change="change"></ItemCounter>
+      <ItemCounter :value="gold" :use-plus-five="true" @change="change"></ItemCounter>
     </v-card-text>
   </v-card>
 </template>

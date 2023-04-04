@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import MenuBar from '@/components/mercenary-list/MenuBar.vue';
 import AddMercenary from '@/components/mercenary-list/AddMercenary.vue';
+import MenuBar from '@/components/mercenary-list/MenuBar.vue';
 import MercenaryList from '@/components/mercenary-list/MercenaryList.vue';
 </script>
 

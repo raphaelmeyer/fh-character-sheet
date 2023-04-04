@@ -2,8 +2,12 @@
 import { computed } from 'vue';
 
 import type { Mercenary } from '@/domain/character';
+import { characters } from '@/domain/character';
+import { colors } from '@/domain/colors';
 
 const props = defineProps<{ mercenary: Mercenary }>();
+
+const color = computed(() => colors[props.mercenary.character]);
 
 interface Level {
   id: number;
@@ -28,16 +32,16 @@ const mercenaryLevel = computed(() => {
 </script>
 
 <template>
-  <v-card color="grey-lighten-3">
+  <v-card v-if="mercenary" :color="color.background">
     <v-card-item>
-      <v-card-title>Valrath Deathwalker </v-card-title>
+      <v-card-title>{{ characters[mercenary.character] }} </v-card-title>
     </v-card-item>
     <v-card-text>
       <v-timeline direction="horizontal" truncate-line="both" side="end">
         <v-timeline-item
           v-for="level in levels"
           :key="level.id"
-          :dot-color="level.xp <= mercenary.xp ? 'grey-darken-3' : 'grey-lighten-2'"
+          :dot-color="level.xp <= mercenary.xp ? color.primary : 'grey-lighten-2'"
           :size="level.id === mercenaryLevel ? 'small' : 'x-small'"
           fill-dot
         >
