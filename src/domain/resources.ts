@@ -20,3 +20,5 @@ export const resources: Record<Resource, string> = {
   rockroot: 'Rockroot',
   snowthistle: 'Snowthistle'
 };
+
+export type Resources = Record<Resource, number>;

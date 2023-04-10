@@ -1,4 +1,6 @@
-import type { Mercenary, Character } from '@/domain/character';
+import type { Character } from '@/domain/character';
+import { Mercenary } from '@/domain/mercenary';
+import type { Resource } from '@/domain/resources';
 import { defineStore } from 'pinia';
 
 interface State {
@@ -21,25 +23,7 @@ export const useMercenaryStore = defineStore('character', {
   actions: {
     create(character: Character, name: string): void {
       const id = Math.max(0, ...this.mercenaries.map((m) => m.id)) + 1;
-      this.mercenaries.push({
-        id: id,
-        character: character,
-        name: name,
-        xp: 0,
-        gold: 0,
-        resources: {
-          lumber: 0,
-          metal: 0,
-          hide: 0,
-          arrowvine: 0,
-          axenut: 0,
-          corpsecap: 0,
-          flamefruit: 0,
-          rockroot: 0,
-          snowthistle: 0
-        },
-        perks: []
-      });
+      this.mercenaries.push(new Mercenary(id, character, name));
     },
 
     changeXp(id: number, diff: number): void {

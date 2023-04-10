@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import type { Character, Resources } from '@/domain/character';
+import type { Character } from '@/domain/character';
 import { colors } from '@/domain/colors';
-import type { Resource } from '@/domain/resources';
+import type { Resource, Resources } from '@/domain/resources';
 
 import ResourceItem from './ResourceItem.vue';
 

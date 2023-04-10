@@ -7,7 +7,7 @@ import MasteriesSection from '@/components/character-sheet/MasteriesSection.vue'
 import OverviewSection from '@/components/character-sheet/OverviewSection.vue';
 import PerksSection from '@/components/character-sheet/PerksSection.vue';
 import ResourcesSection from '@/components/character-sheet/ResourcesSection.vue';
-import type { Mercenary } from '@/domain/character';
+import type { Mercenary } from '@/domain/mercenary';
 import type { Resource } from '@/domain/resources';
 
 const props = defineProps<{ mercenary: Mercenary }>();

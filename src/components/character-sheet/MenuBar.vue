@@ -1,8 +1,7 @@
 <script setup lang="ts">
-import type { Mercenary } from '@/domain/character';
-
-import { avatars } from '@/domain/icons';
 import { colors } from '@/domain/colors';
+import { avatars } from '@/domain/icons';
+import type { Mercenary } from '@/domain/mercenary';
 
 defineProps<{ mercenary: Mercenary }>();
 </script>
