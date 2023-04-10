@@ -6,6 +6,7 @@ import BlinkbladeIcon from '@/assets/any2cards/fh-blinkblade-bw-icon.png';
 import BoneshaperIcon from '@/assets/any2cards/fh-boneshaper-bw-icon.png';
 import DeathwalkerIcon from '@/assets/any2cards/fh-deathwalker-bw-icon.png';
 import GeminateIcon from '@/assets/any2cards/fh-geminate-bw-icon.png';
+import DrifterIcon from '@/assets/any2cards/fh-drifter-bw-icon.png';
 
 import LumberIcon from '@/assets/any2cards/fh-lumber-bw-icon.png';
 import MetalIcon from '@/assets/any2cards/fh-metal-bw-icon.png';
@@ -22,6 +23,7 @@ export const avatars: Record<Character, string> = {
   blinkblade: BlinkbladeIcon,
   boneshaper: BoneshaperIcon,
   deathwalker: DeathwalkerIcon,
+  drifter: DrifterIcon,
   geminate: GeminateIcon
 };
 
