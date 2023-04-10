@@ -45,6 +45,19 @@ export const useMercenaryStore = defineStore('character', {
       if (mercenary) {
         mercenary.resources[resource] = Math.max(0, mercenary.resources[resource] + diff);
       }
+    },
+
+    tickPerk(id: number): void {
+      const mercenary = this.mercenaryById(id);
+      if (mercenary) {
+        mercenary.ticks = Math.min(18, mercenary.ticks + 1);
+      }
+    },
+    untickPerk(id: number): void {
+      const mercenary = this.mercenaryById(id);
+      if (mercenary) {
+        mercenary.ticks = Math.max(0, mercenary.ticks - 1);
+      }
     }
   }
 });

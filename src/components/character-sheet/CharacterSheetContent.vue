@@ -25,6 +25,14 @@ function changeGold(diff: number): void {
 function changeResource(resource: Resource, diff: number): void {
   store.changeResource(props.mercenary.id, resource, diff);
 }
+
+function tickPerk(): void {
+  store.tickPerk(props.mercenary.id);
+}
+
+function untickPerk(): void {
+  store.untickPerk(props.mercenary.id);
+}
 </script>
 
 <template>
@@ -65,7 +73,12 @@ function changeResource(resource: Resource, diff: number): void {
     </v-row>
     <v-row>
       <v-col>
-        <PerksSection></PerksSection>
+        <PerksSection
+          :character="mercenary.character"
+          :ticks="mercenary.ticks"
+          @tick="tickPerk"
+          @untick="untickPerk"
+        ></PerksSection>
       </v-col>
     </v-row>
     <v-row>

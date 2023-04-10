@@ -19,6 +19,7 @@ export class Mercenary {
   public xp: number = 0;
   public gold: number = 0;
   public resources: Resources = emptyBag();
+  public ticks: number = 0;
   public perks: number[] = [];
 
   constructor(
