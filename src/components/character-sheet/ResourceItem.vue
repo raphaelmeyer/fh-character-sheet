@@ -4,12 +4,16 @@ import type { Resource } from '@/domain/resources';
 
 import ItemCounter from './ItemCounter.vue';
 
-defineProps<{ resource: Resource }>();
+defineProps<{ resource: Resource; amount: number }>();
+defineEmits<{ (e: 'change', resource: Resource, diff: number): void }>();
 </script>
 
 <template>
   <v-col cols="1" class="d-flex justify-center align-center">
     <v-img :src="icons[resource]" max-width="1.5em" max-height="1.5em"></v-img>
   </v-col>
-  <v-col> <item-counter :value="0"> </item-counter> </v-col>
+  <v-col>
+    <item-counter :value="amount" @change="(diff) => $emit('change', resource, diff)">
+    </item-counter>
+  </v-col>
 </template>

@@ -27,6 +27,17 @@ export const useMercenaryStore = defineStore('character', {
         name: name,
         xp: 0,
         gold: 0,
+        resources: {
+          lumber: 0,
+          metal: 0,
+          hide: 0,
+          arrowvine: 0,
+          axenut: 0,
+          corpsecap: 0,
+          flamefruit: 0,
+          rockroot: 0,
+          snowthistle: 0
+        },
         perks: []
       });
     },
@@ -42,6 +53,13 @@ export const useMercenaryStore = defineStore('character', {
       const mercenary = this.mercenaryById(id);
       if (mercenary) {
         mercenary.gold += diff;
+      }
+    },
+
+    changeResource(id: number, resource: Resource, diff: number): void {
+      const mercenary = this.mercenaryById(id);
+      if (mercenary) {
+        mercenary.resources[resource] += diff;
       }
     }
   }

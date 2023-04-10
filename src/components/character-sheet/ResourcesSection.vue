@@ -1,10 +1,12 @@
 <script setup lang="ts">
-import type { Character } from '@/domain/character';
+import type { Character, Resources } from '@/domain/character';
 import { colors } from '@/domain/colors';
+import type { Resource } from '@/domain/resources';
 
 import ResourceItem from './ResourceItem.vue';
 
-defineProps<{ character: Character }>();
+defineEmits<{ (e: 'change', resource: Resource, diff: number): void }>();
+defineProps<{ character: Character; resources: Resources }>();
 </script>
 
 <template>
@@ -14,11 +16,15 @@ defineProps<{ character: Character }>();
     </v-card-item>
     <v-card-text>
       <v-row>
-        <ResourceItem resource="lumber"></ResourceItem>
+        <ResourceItem
+          resource="lumber"
+          :amount="resources.lumber"
+          @change="(resources, diff) => $emit('change', resources, diff)"
+        ></ResourceItem>
         <v-divider vertical></v-divider>
-        <ResourceItem resource="metal"></ResourceItem>
+        <ResourceItem resource="metal" :amount="1"></ResourceItem>
         <v-divider vertical></v-divider>
-        <ResourceItem resource="hide"></ResourceItem>
+        <ResourceItem resource="hide" :amount="1"></ResourceItem>
       </v-row>
       <v-row>
         <v-col>
@@ -26,18 +32,18 @@ defineProps<{ character: Character }>();
         </v-col>
       </v-row>
       <v-row>
-        <ResourceItem resource="arrowvine"></ResourceItem>
+        <ResourceItem resource="arrowvine" :amount="0"></ResourceItem>
         <v-divider vertical></v-divider>
-        <ResourceItem resource="axenut"></ResourceItem>
+        <ResourceItem resource="axenut" :amount="0"></ResourceItem>
         <v-divider vertical></v-divider>
-        <ResourceItem resource="corpsecap"></ResourceItem>
+        <ResourceItem resource="corpsecap" :amount="0"></ResourceItem>
       </v-row>
       <v-row>
-        <ResourceItem resource="flamefruit"></ResourceItem>
+        <ResourceItem resource="flamefruit" :amount="0"></ResourceItem>
         <v-divider vertical></v-divider>
-        <ResourceItem resource="rockroot"></ResourceItem>
+        <ResourceItem resource="rockroot" :amount="0"></ResourceItem>
         <v-divider vertical></v-divider>
-        <ResourceItem resource="snowthistle"></ResourceItem>
+        <ResourceItem resource="snowthistle" :amount="0"></ResourceItem>
       </v-row>
     </v-card-text>
   </v-card>

@@ -1,4 +1,8 @@
+import type { Resource } from './resources';
+
 export type Character = 'bannerspear' | 'blinkblade' | 'boneshaper' | 'deathwalker' | 'geminate';
+
+export type Resources = Record<Resource, number>;
 
 export interface Mercenary {
   id: number;
@@ -6,6 +10,7 @@ export interface Mercenary {
   name: string;
   xp: number;
   gold: number;
+  resources: Resources;
   perks: number[];
 }
 

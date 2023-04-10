@@ -8,6 +8,7 @@ import OverviewSection from '@/components/character-sheet/OverviewSection.vue';
 import PerksSection from '@/components/character-sheet/PerksSection.vue';
 import ResourcesSection from '@/components/character-sheet/ResourcesSection.vue';
 import type { Mercenary } from '@/domain/character';
+import type { Resource } from '@/domain/resources';
 
 const props = defineProps<{ mercenary: Mercenary }>();
 
@@ -19,6 +20,10 @@ function changeXp(diff: number): void {
 
 function changeGold(diff: number): void {
   store.changeGold(props.mercenary.id, diff);
+}
+
+function changeResource(resource: Resource, diff: number): void {
+  store.changeResource(props.mercenary.id, resource, diff);
 }
 </script>
 
@@ -51,7 +56,11 @@ function changeGold(diff: number): void {
     </v-row>
     <v-row>
       <v-col>
-        <ResourcesSection :character="mercenary.character"></ResourcesSection>
+        <ResourcesSection
+          :character="mercenary.character"
+          :resources="mercenary.resources"
+          @change="changeResource"
+        ></ResourcesSection>
       </v-col>
     </v-row>
     <v-row>
