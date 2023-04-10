@@ -29,21 +29,21 @@ export const useMercenaryStore = defineStore('character', {
     changeXp(id: number, diff: number): void {
       const mercenary = this.mercenaryById(id);
       if (mercenary) {
-        mercenary.xp += diff;
+        mercenary.xp = Math.max(0, mercenary.xp + diff);
       }
     },
 
     changeGold(id: number, diff: number): void {
       const mercenary = this.mercenaryById(id);
       if (mercenary) {
-        mercenary.gold += diff;
+        mercenary.gold = Math.max(0, mercenary.gold + diff);
       }
     },
 
     changeResource(id: number, resource: Resource, diff: number): void {
       const mercenary = this.mercenaryById(id);
       if (mercenary) {
-        mercenary.resources[resource] += diff;
+        mercenary.resources[resource] = Math.max(0, mercenary.resources[resource] + diff);
       }
     }
   }
