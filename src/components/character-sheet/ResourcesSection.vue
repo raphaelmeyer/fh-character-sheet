@@ -7,6 +7,13 @@ import ResourceItem from './ResourceItem.vue';
 
 defineEmits<{ (e: 'change', resource: Resource, diff: number): void }>();
 defineProps<{ character: Character; resources: Resources }>();
+
+const foo: Resource[][] = [
+  ['lumber', 'metal', 'hide'],
+  [],
+  ['arrowvine', 'axenut', 'corpsecap'],
+  ['flamefruit', 'rockroot', 'snowthistle']
+];
 </script>
 
 <template>
@@ -15,35 +22,19 @@ defineProps<{ character: Character; resources: Resources }>();
       <v-card-title>Resources</v-card-title>
     </v-card-item>
     <v-card-text>
-      <v-row>
-        <ResourceItem
-          resource="lumber"
-          :amount="resources.lumber"
-          @change="(resources, diff) => $emit('change', resources, diff)"
-        ></ResourceItem>
-        <v-divider vertical></v-divider>
-        <ResourceItem resource="metal" :amount="1"></ResourceItem>
-        <v-divider vertical></v-divider>
-        <ResourceItem resource="hide" :amount="1"></ResourceItem>
-      </v-row>
-      <v-row>
-        <v-col>
+      <v-row v-for="(cols, row) in foo" :key="row">
+        <v-col v-if="cols.length === 0">
           <v-divider></v-divider>
         </v-col>
-      </v-row>
-      <v-row>
-        <ResourceItem resource="arrowvine" :amount="0"></ResourceItem>
-        <v-divider vertical></v-divider>
-        <ResourceItem resource="axenut" :amount="0"></ResourceItem>
-        <v-divider vertical></v-divider>
-        <ResourceItem resource="corpsecap" :amount="0"></ResourceItem>
-      </v-row>
-      <v-row>
-        <ResourceItem resource="flamefruit" :amount="0"></ResourceItem>
-        <v-divider vertical></v-divider>
-        <ResourceItem resource="rockroot" :amount="0"></ResourceItem>
-        <v-divider vertical></v-divider>
-        <ResourceItem resource="snowthistle" :amount="0"></ResourceItem>
+        <template v-for="(resource, col) in cols" :key="col">
+          <v-divider v-if="col !== 0" vertical></v-divider>
+          <ResourceItem
+            :resource="resource"
+            :amount="resources[resource]"
+            @change="(resource, diff) => $emit('change', resource, diff)"
+          >
+          </ResourceItem>
+        </template>
       </v-row>
     </v-card-text>
   </v-card>
