@@ -129,4 +129,53 @@ describe('Mercenary store', () => {
       expect(store.mercenaryById(id)?.xp).toStrictEqual(0);
     });
   });
+
+  describe('Modify perks', () => {
+    const setup = () => {
+      const store = useMercenaryStore();
+      store.create('deathwalker', 'pete');
+      const id = store.mercenaries.at(0)?.id ?? NaN;
+
+      return [store, id] as const;
+    };
+
+    it('should keep perks undefined or zero by default', () => {
+      const [store, id] = setup();
+      expect(store.mercenaryById(id)?.perks.at(5) ?? 0).toStrictEqual(0);
+      expect(store.mercenaryById(id)?.perks.at(7) ?? 0).toStrictEqual(0);
+    });
+
+    it('should change perks', () => {
+      const [store, id] = setup();
+
+      store.changePerk(id, 5, 1);
+      expect(store.mercenaryById(id)?.perks.at(5)).toStrictEqual(1);
+
+      store.changePerk(id, 5, 1);
+      expect(store.mercenaryById(id)?.perks.at(5)).toStrictEqual(2);
+
+      store.changePerk(id, 5, -2);
+      store.changePerk(id, 7, 1);
+      expect(store.mercenaryById(id)?.perks.at(5)).toStrictEqual(0);
+      expect(store.mercenaryById(id)?.perks.at(7)).toStrictEqual(1);
+    });
+
+    it('should not drop below zero', () => {
+      const [store, id] = setup();
+
+      store.changePerk(id, 4, 1);
+      store.changePerk(id, 4, -2);
+      expect(store.mercenaryById(id)?.perks.at(4)).toStrictEqual(0);
+    });
+
+    it('should not exceed limit', () => {
+      const [store, id] = setup();
+
+      store.changePerk(id, 4, 5);
+      expect(store.mercenaryById(id)?.perks.at(4)).toStrictEqual(3);
+
+      store.changePerk(id, 4, 1);
+      expect(store.mercenaryById(id)?.perks.at(4)).toStrictEqual(3);
+    });
+  });
 });

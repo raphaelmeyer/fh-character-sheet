@@ -5,7 +5,11 @@ import type { Character } from '@/domain/character';
 import { colors } from '@/domain/colors';
 import { perks } from '@/domain/perks';
 
-defineEmits<{ (e: 'tick'): void; (e: 'untick'): void }>();
+defineEmits<{
+  (e: 'tick'): void;
+  (e: 'untick'): void;
+  (e: 'change', id: number, diff: number): void;
+}>();
 const props = defineProps<{ character: Character; ticks: number }>();
 
 const rows = computed(() => {
@@ -59,8 +63,13 @@ const rows = computed(() => {
         </v-col>
       </v-row>
       <v-row v-for="perk in perks[character]" :key="perk.id">
-        <v-col class="d-flex align-center" cols="2">
-          <v-checkbox-btn v-for="i in perk.num" :key="i" density="compact"></v-checkbox-btn>
+        <v-col class="d-flex align-center" cols="4">
+          <v-checkbox-btn
+            v-for="i in perk.num"
+            :key="i"
+            density="compact"
+            @update:model-value="(on: boolean) => $emit('change',perk.id, on ? 1 : -1)"
+          ></v-checkbox-btn>
         </v-col>
         <v-col class="d-flex align-center">
           <span>{{ perk.text }}</span>

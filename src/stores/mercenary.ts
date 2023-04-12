@@ -1,5 +1,6 @@
 import type { Character } from '@/domain/character';
 import { Mercenary } from '@/domain/mercenary';
+import { perks } from '@/domain/perks';
 import type { Resource } from '@/domain/resources';
 import { defineStore } from 'pinia';
 
@@ -14,7 +15,7 @@ export const useMercenaryStore = defineStore('character', {
 
   getters: {
     mercenaryById: (state) => {
-      return (id: number) => {
+      return (id: number): Mercenary | undefined => {
         return state.mercenaries.find((m) => m.id === id);
       };
     }
@@ -58,6 +59,21 @@ export const useMercenaryStore = defineStore('character', {
       if (mercenary) {
         mercenary.ticks = Math.max(0, mercenary.ticks - 1);
       }
+    },
+
+    changePerk(id: number, perkId: number, diff: number): void {
+      const mercenary = this.mercenaryById(id);
+      if (mercenary === undefined) {
+        return;
+      }
+
+      const perk = perks[mercenary.character].find((p) => p.id === perkId);
+      if (perk === undefined) {
+        return;
+      }
+
+      const value = diff + (mercenary.perks.at(perkId) ?? 0);
+      mercenary.perks[perkId] = Math.max(0, Math.min(perk.num, value));
     }
   }
 });

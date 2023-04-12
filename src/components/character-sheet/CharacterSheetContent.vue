@@ -33,6 +33,10 @@ function tickPerk(): void {
 function untickPerk(): void {
   store.untickPerk(props.mercenary.id);
 }
+
+function changePerk(id: number, diff: number): void {
+  store.changePerk(props.mercenary.id, id, diff);
+}
 </script>
 
 <template>
@@ -78,6 +82,7 @@ function untickPerk(): void {
           :ticks="mercenary.ticks"
           @tick="tickPerk"
           @untick="untickPerk"
+          @change="changePerk"
         ></PerksSection>
       </v-col>
     </v-row>
