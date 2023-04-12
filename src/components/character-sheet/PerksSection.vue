@@ -16,7 +16,8 @@ const rows = computed(() => {
         .map((i) => row * 9 + col * 3 + i)
         .map((i) => ({
           ticked: i < props.ticks,
-          disabled: i < props.ticks - 1 || props.ticks < i
+          readonly: i < props.ticks - 1,
+          disabled: props.ticks < i
         }))
     }))
   );
@@ -43,7 +44,8 @@ const rows = computed(() => {
           <v-checkbox-btn
             v-for="(tick, i) in col.ticks"
             :key="i"
-            :readonly="tick.disabled"
+            :disabled="tick.disabled"
+            :readonly="tick.readonly"
             :model-value="tick.ticked"
             density="compact"
             @update:model-value="(on: boolean) => $emit(on ? 'tick' : 'untick')"
