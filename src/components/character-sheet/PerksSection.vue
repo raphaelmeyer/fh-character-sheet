@@ -3,14 +3,16 @@ import { computed } from 'vue';
 
 import type { Character } from '@/domain/character';
 import { colors } from '@/domain/colors';
-import { perks } from '@/domain/perks';
+import { perks as perkInfo } from '@/domain/perks';
+
+import CheckboxRow from './CheckboxRow.vue';
 
 defineEmits<{
   (e: 'tick'): void;
   (e: 'untick'): void;
   (e: 'change', id: number, diff: number): void;
 }>();
-const props = defineProps<{ character: Character; ticks: number }>();
+const props = defineProps<{ character: Character; ticks: number; perks: number[] }>();
 
 const rows = computed(() => {
   return [0, 1].map((row) =>
@@ -62,17 +64,18 @@ const rows = computed(() => {
           <v-divider></v-divider>
         </v-col>
       </v-row>
-      <v-row v-for="perk in perks[character]" :key="perk.id">
+      <v-row v-for="info in perkInfo[character]" :key="info.id">
         <v-col class="d-flex align-center" cols="4">
-          <v-checkbox-btn
-            v-for="i in perk.num"
-            :key="i"
-            density="compact"
-            @update:model-value="(on: boolean) => $emit('change',perk.id, on ? 1 : -1)"
-          ></v-checkbox-btn>
+          <CheckboxRow
+            :ticks="perks.at(info.id) ?? 0"
+            :limit="info.num"
+            @tick="$emit('change', info.id, 1)"
+            @untick="$emit('change', info.id, -1)"
+          >
+          </CheckboxRow>
         </v-col>
         <v-col class="d-flex align-center">
-          <span>{{ perk.text }}</span>
+          <span>{{ info.text }}</span>
         </v-col>
       </v-row>
     </v-card-text>

@@ -80,6 +80,7 @@ function changePerk(id: number, diff: number): void {
         <PerksSection
           :character="mercenary.character"
           :ticks="mercenary.ticks"
+          :perks="mercenary.perks"
           @tick="tickPerk"
           @untick="untickPerk"
           @change="changePerk"
