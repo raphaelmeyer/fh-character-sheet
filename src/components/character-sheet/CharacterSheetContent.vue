@@ -78,7 +78,7 @@ function changePerk(id: number, diff: number): void {
           :ticks="mercenary.ticks"
           :perks="mercenary.perks"
           @change-ticks="changeTicks"
-          @change="changePerk"
+          @change-perk="changePerk"
         ></PerksSection>
       </v-col>
     </v-row>

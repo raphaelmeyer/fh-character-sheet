@@ -9,7 +9,7 @@ import CheckboxRow from './CheckboxRow.vue';
 
 defineEmits<{
   (e: 'changeTicks', diff: number): void;
-  (e: 'change', id: number, diff: number): void;
+  (e: 'changePerk', id: number, diff: number): void;
 }>();
 const props = defineProps<{ character: Character; ticks: number; perks: number[] }>();
 
@@ -105,8 +105,8 @@ const rows = computed(() => {
           <CheckboxRow
             :ticks="perks.at(chPerk.id) ?? 0"
             :limit="chPerk.num"
-            @tick="$emit('change', chPerk.id, 1)"
-            @untick="$emit('change', chPerk.id, -1)"
+            @tick="$emit('changePerk', chPerk.id, 1)"
+            @untick="$emit('changePerk', chPerk.id, -1)"
           >
           </CheckboxRow>
         </v-col>
