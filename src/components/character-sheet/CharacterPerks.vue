@@ -21,7 +21,7 @@ function tickState(id: number, tick: number): TickState {
   return 'unticked';
 }
 
-const foo = computed(() => {
+const data = computed(() => {
   return characterPerks[props.character].map((perk) => ({
     info: perk,
     ticks: Array.from(Array(perk.limit).keys()).map((tick) => tickState(perk.id, tick))
@@ -30,7 +30,7 @@ const foo = computed(() => {
 </script>
 
 <template>
-  <v-row v-for="perk in foo" :key="perk.info.id">
+  <v-row v-for="perk in data" :key="perk.info.id">
     <v-col class="d-flex align-center" cols="4">
       <template v-for="(tick, k) in perk.ticks" :key="k">
         <v-checkbox-btn
