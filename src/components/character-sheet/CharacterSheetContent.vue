@@ -1,14 +1,15 @@
 <script setup lang="ts">
 import { useMercenaryStore } from '@/stores/mercenary';
 
+import type { Mercenary } from '@/domain/mercenary';
+import type { Resource } from '@/domain/resources';
+
 import ExperienceSection from '@/components/character-sheet/ExperienceSection.vue';
 import GoldSection from '@/components/character-sheet/GoldSection.vue';
 import MasteriesSection from '@/components/character-sheet/MasteriesSection.vue';
 import OverviewSection from '@/components/character-sheet/OverviewSection.vue';
 import PerksSection from '@/components/character-sheet/PerksSection.vue';
 import ResourcesSection from '@/components/character-sheet/ResourcesSection.vue';
-import type { Mercenary } from '@/domain/mercenary';
-import type { Resource } from '@/domain/resources';
 
 const props = defineProps<{ mercenary: Mercenary }>();
 

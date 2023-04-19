@@ -2,7 +2,7 @@
 import { resources as icons } from '@/domain/icons';
 import type { Resource } from '@/domain/resources';
 
-import ItemCounter from './ItemCounter.vue';
+import ItemCounter from '@/components/character-sheet/ItemCounter.vue';
 
 defineProps<{ resource: Resource; amount: number }>();
 defineEmits<{ (e: 'change', resource: Resource, diff: number): void }>();

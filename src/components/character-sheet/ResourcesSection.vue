@@ -3,7 +3,7 @@ import type { Character } from '@/domain/character';
 import { colors } from '@/domain/colors';
 import type { Resource, Resources } from '@/domain/resources';
 
-import ResourceItem from './ResourceItem.vue';
+import ResourceItem from '@/components/character-sheet/ResourceItem.vue';
 
 defineEmits<{ (e: 'change', resource: Resource, diff: number): void }>();
 defineProps<{ character: Character; resources: Resources }>();

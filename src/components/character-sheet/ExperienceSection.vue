@@ -2,7 +2,7 @@
 import type { Character } from '@/domain/character';
 import { colors } from '@/domain/colors';
 
-import ItemCounter from './ItemCounter.vue';
+import ItemCounter from '@/components/character-sheet/ItemCounter.vue';
 
 defineEmits<{ (e: 'change', diff: number): void }>();
 defineProps<{ character: Character; xp: number }>();
@@ -17,7 +17,7 @@ defineProps<{ character: Character; xp: number }>();
       <ItemCounter
         :value="xp"
         :use-plus-five="true"
-        @change="$emit('change', $event)"
+        @change="(diff) => $emit('change', diff)"
       ></ItemCounter>
     </v-card-text>
   </v-card>
