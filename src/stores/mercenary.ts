@@ -67,7 +67,7 @@ export const useMercenaryStore = defineStore('character', {
       }
 
       const value = diff + (mercenary.perks.at(perkId) ?? 0);
-      mercenary.perks[perkId] = Math.max(0, Math.min(perk.num, value));
+      mercenary.perks[perkId] = Math.max(0, Math.min(perk.limit, value));
     }
   }
 });

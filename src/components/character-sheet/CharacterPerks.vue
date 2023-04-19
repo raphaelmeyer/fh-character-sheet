@@ -24,7 +24,7 @@ function tickState(id: number, tick: number): TickState {
 const foo = computed(() => {
   return characterPerks[props.character].map((perk) => ({
     info: perk,
-    ticks: Array.from(Array(perk.num).keys()).map((tick) => tickState(perk.id, tick))
+    ticks: Array.from(Array(perk.limit).keys()).map((tick) => tickState(perk.id, tick))
   }));
 });
 </script>
