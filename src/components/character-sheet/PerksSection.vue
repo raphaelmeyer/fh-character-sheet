@@ -8,8 +8,7 @@ import { perks as characterPerks } from '@/domain/perks';
 import CheckboxRow from './CheckboxRow.vue';
 
 defineEmits<{
-  (e: 'tick'): void;
-  (e: 'untick'): void;
+  (e: 'changeTicks', diff: number): void;
   (e: 'change', id: number, diff: number): void;
 }>();
 const props = defineProps<{ character: Character; ticks: number; perks: number[] }>();
@@ -73,7 +72,7 @@ const rows = computed(() => {
               density="compact"
               readonly
               :model-value="true"
-              @click="() => $emit('untick')"
+              @click="() => $emit('changeTicks', -1)"
             >
             </v-checkbox-btn>
             <v-checkbox-btn
@@ -81,7 +80,7 @@ const rows = computed(() => {
               density="compact"
               readonly
               :model-value="false"
-              @click="() => $emit('tick')"
+              @click="() => $emit('changeTicks', 1)"
             >
             </v-checkbox-btn>
             <v-checkbox-btn

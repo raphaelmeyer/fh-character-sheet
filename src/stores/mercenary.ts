@@ -48,16 +48,10 @@ export const useMercenaryStore = defineStore('character', {
       }
     },
 
-    tickPerk(id: number): void {
+    changeTicks(id: number, diff: number): void {
       const mercenary = this.mercenaryById(id);
       if (mercenary) {
-        mercenary.ticks = Math.min(18, mercenary.ticks + 1);
-      }
-    },
-    untickPerk(id: number): void {
-      const mercenary = this.mercenaryById(id);
-      if (mercenary) {
-        mercenary.ticks = Math.max(0, mercenary.ticks - 1);
+        mercenary.ticks = Math.max(0, Math.min(18, mercenary.ticks + diff));
       }
     },
 

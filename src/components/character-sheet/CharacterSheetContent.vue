@@ -26,12 +26,8 @@ function changeResource(resource: Resource, diff: number): void {
   store.changeResource(props.mercenary.id, resource, diff);
 }
 
-function tickPerk(): void {
-  store.tickPerk(props.mercenary.id);
-}
-
-function untickPerk(): void {
-  store.untickPerk(props.mercenary.id);
+function changeTicks(diff: number): void {
+  store.changeTicks(props.mercenary.id, diff);
 }
 
 function changePerk(id: number, diff: number): void {
@@ -81,8 +77,7 @@ function changePerk(id: number, diff: number): void {
           :character="mercenary.character"
           :ticks="mercenary.ticks"
           :perks="mercenary.perks"
-          @tick="tickPerk"
-          @untick="untickPerk"
+          @change-ticks="changeTicks"
           @change="changePerk"
         ></PerksSection>
       </v-col>

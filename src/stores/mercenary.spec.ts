@@ -130,6 +130,52 @@ describe('Mercenary store', () => {
     });
   });
 
+  describe('Modify ticks', () => {
+    const setup = () => {
+      const store = useMercenaryStore();
+      store.create('drifter', 'quincy');
+      const id = store.mercenaries.at(0)?.id ?? NaN;
+
+      return [store, id] as const;
+    };
+
+    it('should start with zero ticks', () => {
+      const [store, id] = setup();
+      expect(store.mercenaryById(id)?.ticks).toStrictEqual(0);
+    });
+
+    it('should change ticks', () => {
+      const [store, id] = setup();
+
+      store.changeTicks(id, 2);
+      expect(store.mercenaryById(id)?.ticks).toStrictEqual(2);
+
+      store.changeTicks(id, 3);
+      expect(store.mercenaryById(id)?.ticks).toStrictEqual(5);
+
+      store.changeTicks(id, -4);
+      expect(store.mercenaryById(id)?.ticks).toStrictEqual(1);
+    });
+
+    it('should not drop below zero', () => {
+      const [store, id] = setup();
+
+      store.changeTicks(id, 3);
+      store.changeTicks(id, -5);
+      expect(store.mercenaryById(id)?.ticks).toStrictEqual(0);
+    });
+
+    it('should not exceed limit', () => {
+      const [store, id] = setup();
+
+      store.changeTicks(id, 21);
+      expect(store.mercenaryById(id)?.ticks).toStrictEqual(18);
+
+      store.changeTicks(id, 3);
+      expect(store.mercenaryById(id)?.ticks).toStrictEqual(18);
+    });
+  });
+
   describe('Modify perks', () => {
     const setup = () => {
       const store = useMercenaryStore();
