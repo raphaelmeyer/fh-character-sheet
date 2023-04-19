@@ -1,21 +1,11 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 
+import TickItem from '@/components/character-sheet/TickItem.vue';
+import { tickState } from '@/components/character-sheet/tick-state';
+
 defineEmits<{ (e: 'change', diff: number): void }>();
 const props = defineProps<{ ticks: number }>();
-
-type TickState = 'ticked' | 'last-ticked' | 'first-unticked' | 'unticked';
-
-function tickState(tick: number): TickState {
-  if (tick < props.ticks - 1) {
-    return 'ticked';
-  } else if (tick === props.ticks - 1) {
-    return 'last-ticked';
-  } else if (tick === props.ticks) {
-    return 'first-unticked';
-  }
-  return 'unticked';
-}
 
 const rows = computed(() => {
   return [0, 1].map((row) => {
@@ -24,7 +14,7 @@ const rows = computed(() => {
       return {
         completed: group + 2 < props.ticks,
         ticks: [0, 1, 2].map((tick) => {
-          return tickState(tick + group);
+          return tickState(tick + group, props.ticks);
         })
       };
     });
@@ -44,34 +34,13 @@ const rows = computed(() => {
         "
       >
       </v-icon>
-      <template v-for="(tick, k) in group.ticks" :key="k">
-        <v-checkbox-btn
-          v-if="tick === 'ticked'"
-          density="compact"
-          readonly
-          :model-value="true"
-          :ripple="false"
-        >
-        </v-checkbox-btn>
-        <v-checkbox-btn
-          v-if="tick === 'last-ticked'"
-          density="compact"
-          readonly
-          :model-value="true"
-          @click="() => $emit('change', -1)"
-        >
-        </v-checkbox-btn>
-        <v-checkbox-btn
-          v-if="tick === 'first-unticked'"
-          density="compact"
-          readonly
-          :model-value="false"
-          @click="() => $emit('change', 1)"
-        >
-        </v-checkbox-btn>
-        <v-checkbox-btn v-if="tick === 'unticked'" density="compact" disabled :model-value="false">
-        </v-checkbox-btn>
-      </template>
+      <TickItem
+        v-for="(tick, k) in group.ticks"
+        :key="k"
+        :state="tick"
+        @change="(diff) => $emit('change', diff)"
+      >
+      </TickItem>
     </v-col>
   </v-row>
 </template>
