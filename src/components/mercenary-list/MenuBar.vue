@@ -38,8 +38,16 @@ function saveFile() {
   <v-app-bar color="indigo">
     <v-app-bar-title>Frosthaven Character Sheets</v-app-bar-title>
     <template #append>
-      <v-btn icon="mdi-file-account-outline" @click="selectFile"></v-btn>
-      <v-btn icon="mdi-download" @click="saveFile"></v-btn>
+      <v-tooltip text="Load" location="bottom">
+        <template #activator="{ props }">
+          <v-btn v-bind="props" icon="mdi-file-account-outline" @click="selectFile"> </v-btn>
+        </template>
+      </v-tooltip>
+      <v-tooltip text="Save" location="bottom">
+        <template #activator="{ props }">
+          <v-btn v-bind="props" icon="mdi-download" @click="saveFile"> </v-btn>
+        </template>
+      </v-tooltip>
     </template>
   </v-app-bar>
 
