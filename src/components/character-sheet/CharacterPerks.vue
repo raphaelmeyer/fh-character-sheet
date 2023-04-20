@@ -4,8 +4,9 @@ import { computed } from 'vue';
 import type { Character } from '@/domain/character';
 import { perks as characterPerks } from '@/domain/perks';
 
-import { tickState } from '@/components/character-sheet/tick-state';
+import PerkText from '@/components/character-sheet/PerkText.vue';
 import TickItem from '@/components/character-sheet/TickItem.vue';
+import { tickState } from '@/components/character-sheet/tick-state';
 
 defineEmits<{ (e: 'change', id: number, diff: number): void }>();
 const props = defineProps<{ character: Character; perks: number[] }>();
@@ -22,7 +23,7 @@ const data = computed(() => {
 
 <template>
   <v-row v-for="perk in data" :key="perk.info.id">
-    <v-col class="d-flex align-center" cols="4">
+    <v-col class="d-flex align-center" cols="3">
       <TickItem
         v-for="(tick, k) in perk.ticks"
         :key="k"
@@ -31,8 +32,8 @@ const data = computed(() => {
       >
       </TickItem>
     </v-col>
-    <v-col class="d-flex align-center">
-      <span>{{ perk.info.text }}</span>
+    <v-col>
+      <PerkText :text="perk.info.text"></PerkText>
     </v-col>
   </v-row>
 </template>
