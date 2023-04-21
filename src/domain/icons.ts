@@ -36,6 +36,8 @@ import TargetIcon from 'https://raw.githubusercontent.com/any2cards/worldhaven/m
 
 import DarkIcon from 'https://raw.githubusercontent.com/any2cards/worldhaven/master/images/art/frosthaven/icons/elements/fh-dark-bw-icon.png';
 
+import ShadowIcon from 'https://raw.githubusercontent.com/any2cards/worldhaven/master/images/art/frosthaven/icons/class/fh-deathwalker-shadow-bw-icon.png';
+
 export const avatars: Record<Character, string> = {
   bannerspear: BannerSpearIcon,
   blinkblade: BlinkbladeIcon,
@@ -73,5 +75,7 @@ export const modifiers: Record<Modifier, string> = {
   range: RangeIcon,
   target: TargetIcon,
 
-  dark: DarkIcon
+  dark: DarkIcon,
+
+  shadow: ShadowIcon
 };

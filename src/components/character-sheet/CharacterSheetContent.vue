@@ -85,7 +85,7 @@ function changePerk(id: number, diff: number): void {
     </v-row>
     <v-row>
       <v-col>
-        <MasteriesSection></MasteriesSection>
+        <MasteriesSection :character="mercenary.character"> </MasteriesSection>
       </v-col>
     </v-row>
   </v-container>

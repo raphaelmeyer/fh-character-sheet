@@ -19,18 +19,39 @@ export const perks: Record<Character, Perk[]> = {
     { id: 6, limit: 2, text: 'Add one <disarm> <rolling> card and one <muddle> <rolling> card' },
     { id: 7, limit: 2, text: 'Add two <heal> 1, <target> 1 ally <rolling> cards' },
     { id: 8, limit: 1, text: 'Ignore scenario effects' },
-    { id: 9, limit: 1, text: 'Whenever you long rest, you may move one shadow up to three hexes' },
+    {
+      id: 9,
+      limit: 1,
+      text: 'Whenever you long rest, you may move one <shadow> up to three hexes'
+    },
     {
       id: 10,
       limit: 1,
-      text: 'Whenever you short rest, you may consume <dark> to perform <muddle>, <wound>, <range> 2 as if you were occupying a hex with a shadow'
+      text: 'Whenever you short rest, you may consume <dark> to perform <muddle>, <wound>, <range> 2 as if you were occupying a hex with a <shadow>'
     },
     {
       id: 11,
       limit: 1,
-      text: 'While you are occupying a hex with a shadow, all attacks targeting you gain disadvantage'
+      text: 'While you are occupying a hex with a <shadow>, all attacks targeting you gain disadvantage'
     }
   ],
   drifter: [],
   geminate: []
+};
+
+export interface Masteries {
+  first: string;
+  second: string;
+}
+
+export const masteries: Record<Character, Masteries> = {
+  bannerspear: { first: '', second: '' },
+  blinkblade: { first: '', second: '' },
+  boneshaper: { first: '', second: '' },
+  deathwalker: {
+    first: 'Remove seven <shadow> in one round',
+    second: 'Place or remove at least one <shadow> each round'
+  },
+  drifter: { first: '', second: '' },
+  geminate: { first: '', second: '' }
 };

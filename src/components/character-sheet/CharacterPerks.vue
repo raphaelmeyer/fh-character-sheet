@@ -22,7 +22,7 @@ const data = computed(() => {
 </script>
 
 <template>
-  <v-row v-for="perk in data" :key="perk.info.id">
+  <v-row v-for="perk in data" :key="perk.info.id" class="d-flex align-center">
     <v-col class="d-flex align-center" cols="3">
       <TickItem
         v-for="(tick, k) in perk.ticks"

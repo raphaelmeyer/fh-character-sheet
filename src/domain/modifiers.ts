@@ -4,6 +4,8 @@ export type Condition = 'disarm' | 'muddle' | 'rolling' | 'wound';
 
 export type General = 'heal' | 'range' | 'target';
 
-export type Elements = 'dark';
+export type Element = 'dark';
 
-export type Modifier = AttackModifier | Condition | General | Elements;
+export type Special = 'shadow';
+
+export type Modifier = AttackModifier | Condition | General | Element | Special;
