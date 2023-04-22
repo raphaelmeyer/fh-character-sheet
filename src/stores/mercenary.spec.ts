@@ -37,6 +37,9 @@ describe('Mercenary store', () => {
       expect(mercenary?.gold).toStrictEqual(0);
       expect(mercenary?.ticks).toStrictEqual(0);
       expect(mercenary?.perks).toHaveLength(0);
+      expect(mercenary?.masteries).toStrictEqual(
+        expect.objectContaining({ first: false, second: false })
+      );
       expect(mercenary?.resources.metal).toStrictEqual(0);
       expect(mercenary?.resources.arrowvine).toStrictEqual(0);
       expect(mercenary?.resources.rockroot).toStrictEqual(0);
@@ -222,6 +225,39 @@ describe('Mercenary store', () => {
 
       store.changePerk(id, 4, 1);
       expect(store.mercenaryById(id)?.perks.at(4)).toStrictEqual(3);
+    });
+  });
+
+  describe('Masteries', () => {
+    const setup = () => {
+      const store = useMercenaryStore();
+      store.create('geminate', 'roseanne');
+      const id = store.mercenaries.at(0)?.id ?? NaN;
+
+      return [store, id] as const;
+    };
+
+    it('should set masteries to false by default', () => {
+      const [store, id] = setup();
+
+      expect(store.mercenaryById(id)?.masteries.first).toStrictEqual(false);
+      expect(store.mercenaryById(id)?.masteries.second).toStrictEqual(false);
+    });
+
+    it('should toggle masteries', () => {
+      const [store, id] = setup();
+
+      store.toggleMastery(id, 'first');
+      expect(store.mercenaryById(id)?.masteries.first).toStrictEqual(true);
+      expect(store.mercenaryById(id)?.masteries.second).toStrictEqual(false);
+
+      store.toggleMastery(id, 'second');
+      expect(store.mercenaryById(id)?.masteries.first).toStrictEqual(true);
+      expect(store.mercenaryById(id)?.masteries.second).toStrictEqual(true);
+
+      store.toggleMastery(id, 'first');
+      expect(store.mercenaryById(id)?.masteries.first).toStrictEqual(false);
+      expect(store.mercenaryById(id)?.masteries.second).toStrictEqual(true);
     });
   });
 });

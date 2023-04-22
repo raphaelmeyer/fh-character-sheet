@@ -38,20 +38,3 @@ export const perks: Record<Character, Perk[]> = {
   drifter: [],
   geminate: []
 };
-
-export interface Masteries {
-  first: string;
-  second: string;
-}
-
-export const masteries: Record<Character, Masteries> = {
-  bannerspear: { first: '', second: '' },
-  blinkblade: { first: '', second: '' },
-  boneshaper: { first: '', second: '' },
-  deathwalker: {
-    first: 'Remove seven <shadow> in one round',
-    second: 'Place or remove at least one <shadow> each round'
-  },
-  drifter: { first: '', second: '' },
-  geminate: { first: '', second: '' }
-};

@@ -1,4 +1,5 @@
 import type { Character } from '@/domain/character';
+import type { Mastery } from '@/domain/masteries';
 import { Mercenary } from '@/domain/mercenary';
 import { perks } from '@/domain/perks';
 import type { Resource } from '@/domain/resources';
@@ -68,6 +69,13 @@ export const useMercenaryStore = defineStore('character', {
 
       const value = diff + (mercenary.perks.at(perkId) ?? 0);
       mercenary.perks[perkId] = Math.max(0, Math.min(perk.limit, value));
+    },
+
+    toggleMastery(id: number, mastery: Mastery): void {
+      const mercenary = this.mercenaryById(id);
+      if (mercenary) {
+        mercenary.masteries[mastery] = !mercenary.masteries[mastery];
+      }
     }
   }
 });

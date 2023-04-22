@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import type { Character } from '@/domain/character';
 import { colors } from '@/domain/colors';
+import { masteries } from '@/domain/masteries';
 
 import PerkText from '@/components/character-sheet/PerkText.vue';
-import { masteries } from '@/domain/perks';
 
 defineEmits<{ (e: 'toggle', mastery: 'first' | 'second'): void }>();
 defineProps<{ character: Character }>();
