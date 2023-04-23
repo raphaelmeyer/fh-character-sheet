@@ -16,7 +16,7 @@ function emptyBag(): Resources {
   };
 }
 
-type Masteries = Record<Mastery, boolean>;
+export type Masteries = Record<Mastery, boolean>;
 
 export class Mercenary {
   public xp: number = 0;

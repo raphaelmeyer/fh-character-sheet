@@ -10,6 +10,7 @@ import MasteriesSection from '@/components/character-sheet/MasteriesSection.vue'
 import OverviewSection from '@/components/character-sheet/OverviewSection.vue';
 import PerksSection from '@/components/character-sheet/PerksSection.vue';
 import ResourcesSection from '@/components/character-sheet/ResourcesSection.vue';
+import type { Mastery } from '@/domain/masteries';
 
 const props = defineProps<{ mercenary: Mercenary }>();
 
@@ -33,6 +34,10 @@ function changeTicks(diff: number): void {
 
 function changePerk(id: number, diff: number): void {
   store.changePerk(props.mercenary.id, id, diff);
+}
+
+function toggleMastery(mastery: Mastery): void {
+  store.toggleMastery(props.mercenary.id, mastery);
 }
 </script>
 
@@ -85,7 +90,12 @@ function changePerk(id: number, diff: number): void {
     </v-row>
     <v-row>
       <v-col>
-        <MasteriesSection :character="mercenary.character"> </MasteriesSection>
+        <MasteriesSection
+          :masteries="mercenary.masteries"
+          :character="mercenary.character"
+          @toggle="toggleMastery"
+        >
+        </MasteriesSection>
       </v-col>
     </v-row>
   </v-container>
