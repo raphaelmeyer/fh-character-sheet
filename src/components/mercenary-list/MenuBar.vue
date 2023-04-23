@@ -17,7 +17,7 @@ function loadMercenaries(event: Event): void {
     reader.onload = (e) => {
       if (typeof e.target?.result === 'string') {
         const data = e.target.result as string;
-        store.mercenaries = JSON.parse(data);
+        store.fromJson(data);
       }
     };
     reader.readAsText(file);
@@ -25,12 +25,16 @@ function loadMercenaries(event: Event): void {
   (event.target as HTMLInputElement).value = '';
 }
 
-function saveFile() {
-  const blob = new Blob([JSON.stringify(store.mercenaries)], { type: 'application/json' });
+function saveFile(): void {
+  const blob = new Blob([store.asJson], { type: 'application/json' });
   const link = document.createElement('a');
   link.href = window.URL.createObjectURL(blob);
   link.download = 'fh-character-sheets.json';
   link.click();
+}
+
+function resetStorage(): void {
+  store.reset();
 }
 </script>
 
@@ -46,6 +50,11 @@ function saveFile() {
       <v-tooltip text="Save" location="bottom">
         <template #activator="{ props }">
           <v-btn v-bind="props" icon="mdi-download" @click="saveFile"> </v-btn>
+        </template>
+      </v-tooltip>
+      <v-tooltip text="Reset" location="bottom">
+        <template #activator="{ props }">
+          <v-btn v-bind="props" icon="mdi-trash-can-outline" @click="resetStorage"> </v-btn>
         </template>
       </v-tooltip>
     </template>

@@ -13,10 +13,9 @@ store.$onAction((action) => {
 });
 
 onMounted(() => {
-  const stored = localStorage.getItem('mercenaries');
-  if (stored) {
-    const mercenaries = JSON.parse(stored);
-    store.mercenaries = mercenaries;
+  const data = localStorage.getItem('mercenaries');
+  if (data) {
+    store.fromJson(data);
   }
 });
 </script>

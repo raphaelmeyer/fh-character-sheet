@@ -19,10 +19,22 @@ export const useMercenaryStore = defineStore('character', {
       return (id: number): Mercenary | undefined => {
         return state.mercenaries.find((m) => m.id === id);
       };
+    },
+    asJson(state): string {
+      return JSON.stringify(state.mercenaries);
     }
   },
 
   actions: {
+    fromJson(data: string): void {
+      const mercenaries = JSON.parse(data);
+      this.mercenaries = mercenaries;
+    },
+
+    reset(): void {
+      this.$reset();
+    },
+
     create(character: Character, name: string): void {
       const id = Math.max(0, ...this.mercenaries.map((m) => m.id)) + 1;
       this.mercenaries.push(new Mercenary(id, character, name));
