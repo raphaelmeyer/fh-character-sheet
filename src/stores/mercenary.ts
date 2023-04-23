@@ -14,6 +14,8 @@ export const useMercenaryStore = defineStore('character', {
     return { mercenaries: [] };
   },
 
+  storage: true,
+
   getters: {
     mercenaryById: (state) => {
       return (id: number): Mercenary | undefined => {
@@ -29,10 +31,6 @@ export const useMercenaryStore = defineStore('character', {
     fromJson(data: string): void {
       const mercenaries = JSON.parse(data);
       this.mercenaries = mercenaries;
-    },
-
-    reset(): void {
-      this.$reset();
     },
 
     create(character: Character, name: string): void {

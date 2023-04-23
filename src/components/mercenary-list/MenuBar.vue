@@ -34,7 +34,7 @@ function saveFile(): void {
 }
 
 function resetStorage(): void {
-  store.reset();
+  store.$reset();
 }
 </script>
 
