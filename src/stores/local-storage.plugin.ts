@@ -1,6 +1,7 @@
 import type { PiniaPluginContext } from 'pinia';
 
 declare module 'pinia' {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   export interface DefineStoreOptionsBase<S, Store> {
     storage: boolean;
   }
