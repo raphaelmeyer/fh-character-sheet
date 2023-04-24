@@ -8,12 +8,27 @@ export type AttackModifier =
   | 'plus-3'
   | 'plus-4';
 
-export type Condition = 'disarm' | 'muddle' | 'push' | 'rolling' | 'wound';
+export type Condition =
+  | 'disarm'
+  | 'immobilize'
+  | 'muddle'
+  | 'push'
+  | 'regenerate'
+  | 'rolling'
+  | 'wound';
 
-export type General = 'attack' | 'heal' | 'move' | 'range' | 'shield' | 'target';
+export type General =
+  | 'attack'
+  | 'heal'
+  | 'move'
+  | 'range'
+  | 'recover'
+  | 'shield'
+  | 'tap'
+  | 'target';
 
 export type Element = 'dark';
 
-export type Special = 'shadow';
+export type Special = 'shadow' | 'time';
 
 export type Modifier = AttackModifier | Condition | General | Element | Special;

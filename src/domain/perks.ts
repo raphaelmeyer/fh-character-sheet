@@ -31,7 +31,31 @@ export const perks: Record<Character, Perk[]> = {
       text: 'Once each scenario, during your turn, gain <shield> 2 for the round'
     }
   ],
-  blinkblade: [],
+  blinkblade: [
+    { id: 1, limit: 1, text: 'Remove one <minus-2> card' },
+    { id: 2, limit: 2, text: 'Replace one <minus-1> card with one <plus-1> card' },
+    { id: 3, limit: 2, text: 'Replace one <minus-1> card with one <plus-0> <wound> card' },
+    { id: 4, limit: 2, text: 'Replace one <plus-0> card with one <plus-1> <immobilize> card' },
+    {
+      id: 5,
+      limit: 3,
+      text: 'Replace one <plus-0> card with one "Place this card in your active area. On your next attack, discard this card to add +2 <attack>" <rolling> card'
+    },
+    { id: 6, limit: 1, text: 'Replace two <plus-1> cards with two <plus-2> cards' },
+    { id: 7, limit: 2, text: 'Add one <minus-1> "Gain 1 <time>" card' },
+    { id: 8, limit: 2, text: 'Add one <plus-2> "<regenerate>, self" <rolling> card' },
+    {
+      id: 9,
+      limit: 1,
+      text: 'Whenever you short rest, you may spend one unspent <tap> item for no effect to <recover> a different spent item'
+    },
+    {
+      id: 10,
+      limit: 1,
+      text: 'At the start of your first turn each scenario, you may perform <move> 3'
+    },
+    { id: 11, limit: 1, text: 'Whenever you would gain <immobilize>, prevent the condition' }
+  ],
   boneshaper: [],
   deathwalker: [
     { id: 1, limit: 1, text: 'Remove two <minus-1> cards' },
@@ -40,7 +64,7 @@ export const perks: Record<Character, Perk[]> = {
     { id: 4, limit: 3, text: 'Replace one <plus-0> card with one <plus-1> <wound> card' },
     { id: 5, limit: 2, text: 'Add one <plus-2> <dark> card' },
     { id: 6, limit: 2, text: 'Add one <disarm> <rolling> card and one <muddle> <rolling> card' },
-    { id: 7, limit: 2, text: 'Add two <heal> 1, <target> 1 ally <rolling> cards' },
+    { id: 7, limit: 2, text: 'Add two "<heal> 1, <target> 1 ally" <rolling> cards' },
     { id: 8, limit: 1, text: 'Ignore scenario effects' },
     {
       id: 9,

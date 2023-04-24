@@ -29,8 +29,10 @@ import Plus3Icon from 'https://raw.githubusercontent.com/any2cards/worldhaven/ma
 import Plus4Icon from 'https://raw.githubusercontent.com/any2cards/worldhaven/master/images/art/frosthaven/icons/attack-modifiers/fh-plus-4-bw-icon.png';
 
 import DisarmIcon from 'https://raw.githubusercontent.com/any2cards/worldhaven/master/images/art/frosthaven/icons/conditions/fh-disarm-bw-icon.png';
+import ImmobilizeIcon from 'https://raw.githubusercontent.com/any2cards/worldhaven/master/images/art/frosthaven/icons/conditions/fh-immobilize-bw-icon.png';
 import MuddleIcon from 'https://raw.githubusercontent.com/any2cards/worldhaven/master/images/art/frosthaven/icons/conditions/fh-muddle-bw-icon.png';
 import PushIcon from 'https://raw.githubusercontent.com/any2cards/worldhaven/master/images/art/frosthaven/icons/conditions/fh-push-bw-icon.png';
+import RegenerateIcon from 'https://raw.githubusercontent.com/any2cards/worldhaven/master/images/art/frosthaven/icons/conditions/fh-regenerate-bw-icon.png';
 import RollingIcon from 'https://raw.githubusercontent.com/any2cards/worldhaven/master/images/art/frosthaven/icons/conditions/fh-rolling-bw-icon.png';
 import WoundIcon from 'https://raw.githubusercontent.com/any2cards/worldhaven/master/images/art/frosthaven/icons/conditions/fh-wound-bw-icon.png';
 
@@ -38,12 +40,15 @@ import AttackIcon from 'https://raw.githubusercontent.com/any2cards/worldhaven/m
 import HealIcon from 'https://raw.githubusercontent.com/any2cards/worldhaven/master/images/art/frosthaven/icons/general/fh-heal-bw-icon.png';
 import MoveIcon from 'https://raw.githubusercontent.com/any2cards/worldhaven/master/images/art/frosthaven/icons/general/fh-move-bw-icon.png';
 import RangeIcon from 'https://raw.githubusercontent.com/any2cards/worldhaven/master/images/art/frosthaven/icons/general/fh-range-bw-icon.png';
+import RecoverIcon from 'https://raw.githubusercontent.com/any2cards/worldhaven/master/images/art/frosthaven/icons/general/fh-recover-card-color-icon.png';
 import ShieldIcon from 'https://raw.githubusercontent.com/any2cards/worldhaven/master/images/art/frosthaven/icons/general/fh-shield-bw-icon.png';
 import TargetIcon from 'https://raw.githubusercontent.com/any2cards/worldhaven/master/images/art/frosthaven/icons/general/fh-target-bw-icon.png';
+import TapIcon from 'https://raw.githubusercontent.com/any2cards/worldhaven/master/images/art/frosthaven/icons/general/fh-tap-card-color-icon.png';
 
 import DarkIcon from 'https://raw.githubusercontent.com/any2cards/worldhaven/master/images/art/frosthaven/icons/elements/fh-dark-bw-icon.png';
 
 import ShadowIcon from 'https://raw.githubusercontent.com/any2cards/worldhaven/master/images/art/frosthaven/icons/class/fh-deathwalker-shadow-bw-icon.png';
+import TimeIcon from 'https://raw.githubusercontent.com/any2cards/worldhaven/master/images/art/frosthaven/icons/class/fh-blinkblade-time-bw-icon.png';
 
 export const avatars: Record<Character, string> = {
   bannerspear: BannerSpearIcon,
@@ -77,8 +82,10 @@ export const modifiers: Record<Modifier, string> = {
   'plus-4': Plus4Icon,
 
   disarm: DisarmIcon,
+  immobilize: ImmobilizeIcon,
   muddle: MuddleIcon,
   push: PushIcon,
+  regenerate: RegenerateIcon,
   rolling: RollingIcon,
   wound: WoundIcon,
 
@@ -86,10 +93,13 @@ export const modifiers: Record<Modifier, string> = {
   heal: HealIcon,
   move: MoveIcon,
   range: RangeIcon,
+  recover: RecoverIcon,
   shield: ShieldIcon,
   target: TargetIcon,
+  tap: TapIcon,
 
   dark: DarkIcon,
 
-  shadow: ShadowIcon
+  shadow: ShadowIcon,
+  time: TimeIcon
 };
