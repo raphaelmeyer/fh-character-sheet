@@ -7,14 +7,15 @@ import type { Modifier } from '@/domain/modifiers';
 const props = defineProps<{ text: string }>();
 
 type Icon = { type: 'icon'; source: string };
-type Text = { type: 'text'; text: string };
+type Text = { type: 'text'; words: string[] };
 type Token = Icon | Text;
 
 const tokens = computed((): Token[] => {
   const reSplit = /(<[\w-]+>)/;
   const reIcon = /<([\w-]+)>/;
 
-  const emptyText = (token: Token) => token.type === 'text' && token.text === '';
+  const emptyText = (token: Token) =>
+    token.type === 'text' && token.words.every((w) => w.length === 0);
 
   const createIcon = (part: string) => {
     const icon = part.match(reIcon)?.at(1);
@@ -33,7 +34,8 @@ const tokens = computed((): Token[] => {
         return result;
       }
 
-      const result: Text = { type: 'text', text: part.trim() };
+      const words = part.trim().split(' ');
+      const result: Text = { type: 'text', words };
       return result;
     })
     .filter((token) => !emptyText(token));
@@ -43,10 +45,10 @@ const tokens = computed((): Token[] => {
 <template>
   <div class="d-flex flex-wrap align-center font-weight-bold perk-text">
     <template v-for="(token, i) in tokens" :key="i">
-      <template v-if="token.type === 'icon'">
-        <img :src="token.source" class="icon-image" />
+      <img v-if="token.type === 'icon'" :src="token.source" class="icon-image" />
+      <template v-if="token.type === 'text'">
+        <span v-for="(word, w) in token.words" :key="w">{{ word }} </span>
       </template>
-      <template v-if="token.type === 'text'"> {{ token.text }} </template>
     </template>
   </div>
 </template>
