@@ -1,19 +1,20 @@
 <script setup lang="ts">
+import { computed } from 'vue';
+
 import { modifiers } from '@/domain/icons';
 import type { Modifier } from '@/domain/modifiers';
-import { computed } from 'vue';
 
 const props = defineProps<{ text: string }>();
 
 type Icon = { type: 'icon'; source: string };
-type Text = { type: 'text'; words: string[] };
+type Text = { type: 'text'; text: string };
 type Token = Icon | Text;
 
 const tokens = computed((): Token[] => {
   const reSplit = /(<[\w-]+>)/;
   const reIcon = /<([\w-]+)>/;
 
-  const empty = (text: string[]) => text.length === 0 || text.every((word) => word === '');
+  const emptyText = (token: Token) => token.type === 'text' && token.text === '';
 
   const createIcon = (part: string) => {
     const icon = part.match(reIcon)?.at(1);
@@ -32,31 +33,31 @@ const tokens = computed((): Token[] => {
         return result;
       }
 
-      const words = part.trim().split(' ');
-      const result: Text = { type: 'text', words };
+      const result: Text = { type: 'text', text: part.trim() };
       return result;
     })
-    .filter((token) => !(token.type === 'text' && empty(token.words)));
+    .filter((token) => !emptyText(token));
 });
 </script>
 
 <template>
-  <div class="d-flex flex-wrap align-center">
+  <div class="d-flex flex-wrap align-center font-weight-bold perk-text">
     <template v-for="(token, i) in tokens" :key="i">
       <template v-if="token.type === 'icon'">
-        <v-img
-          :src="token.source"
-          min-width="1em"
-          min-height="1em"
-          max-width="1.2em"
-          max-height="1.2em"
-          class="mr-1"
-        >
-        </v-img>
+        <img :src="token.source" class="icon-image" />
       </template>
-      <template v-if="token.type === 'text'">
-        <span v-for="(word, w) in token.words" :key="w" class="mr-1"> {{ word }} </span>
-      </template>
+      <template v-if="token.type === 'text'"> {{ token.text }} </template>
     </template>
   </div>
 </template>
+
+<style scoped>
+.perk-text {
+  gap: 0.3em;
+}
+.icon-image {
+  max-height: 1.5em;
+  max-width: 1.5em;
+  object-fit: contain;
+}
+</style>
