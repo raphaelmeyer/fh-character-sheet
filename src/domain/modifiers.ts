@@ -1,8 +1,16 @@
-export type AttackModifier = 'minus-1' | 'minus-2' | 'plus-0' | 'plus-1' | 'plus-2';
+export type AttackModifier =
+  | 'item-minus-1'
+  | 'minus-1'
+  | 'minus-2'
+  | 'plus-0'
+  | 'plus-1'
+  | 'plus-2'
+  | 'plus-3'
+  | 'plus-4';
 
-export type Condition = 'disarm' | 'muddle' | 'rolling' | 'wound';
+export type Condition = 'disarm' | 'muddle' | 'push' | 'rolling' | 'wound';
 
-export type General = 'heal' | 'range' | 'target';
+export type General = 'attack' | 'heal' | 'move' | 'range' | 'shield' | 'target';
 
 export type Element = 'dark';
 

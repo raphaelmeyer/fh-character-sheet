@@ -7,7 +7,30 @@ export interface Perk {
 }
 
 export const perks: Record<Character, Perk[]> = {
-  bannerspear: [],
+  bannerspear: [
+    { id: 1, limit: 3, text: 'Replace one <minus-1> card with one "<shield> 1" <rolling> card' },
+    {
+      id: 2,
+      limit: 2,
+      text: 'Replace one <plus-0> card with one <plus-1> "Add +1 <attack> for each ally adjacent to the target" card'
+    },
+    { id: 3, limit: 2, text: 'Add one <plus-1> <disarm> card' },
+    { id: 4, limit: 2, text: 'Add one <plus-2> <push> 1 card' },
+    { id: 5, limit: 2, text: 'Add two <plus-1> <rolling> cards' },
+    { id: 6, limit: 2, text: 'Add two "<heal> 1, self" <rolling> cards' },
+    { id: 7, limit: 1, text: 'Ignore item <item-minus-1> effects and remove one <minus-1> card' },
+    {
+      id: 8,
+      limit: 1,
+      text: 'At the end of each of your long rests, grant one ally within <range> 3: <move> 2'
+    },
+    { id: 9, limit: 1, text: 'Whenever you open a door with a move ability, add +3 <move>' },
+    {
+      id: 10,
+      limit: 2,
+      text: 'Once each scenario, during your turn, gain <shield> 2 for the round'
+    }
+  ],
   blinkblade: [],
   boneshaper: [],
   deathwalker: [
