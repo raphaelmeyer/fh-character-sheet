@@ -24,7 +24,12 @@ export const masteries: Record<Character, Masteries> = {
     first: 'Remove seven <shadow> in one round',
     second: 'Place or remove at least one <shadow> each round'
   },
-  drifter: { first: '', second: '' },
+  drifter: {
+    first:
+      'End a scenario with you character tokens on the last slots of four persistent abilities',
+    second:
+      'Never perform a move ability or attack with a value less than 4, and perform at least one move or attack ability each round'
+  },
   geminate: {
     first: 'Switch forms each round',
     second: 'Lose at least one ability card each round'

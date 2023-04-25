@@ -31,6 +31,7 @@ export type General =
   | 'range'
   | 'recover'
   | 'shield'
+  | 'single-hand'
   | 'tap'
   | 'target';
 

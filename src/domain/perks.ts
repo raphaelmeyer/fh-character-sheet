@@ -109,7 +109,37 @@ export const perks: Record<Character, Perk[]> = {
       text: 'While you are occupying a hex with a <shadow>, all attacks targeting you gain disadvantage'
     }
   ],
-  drifter: [],
+  drifter: [
+    { id: 1, limit: 3, text: 'Replace one <minus-1> card with one <plus-1> card' },
+    { id: 2, limit: 1, text: 'Replace one <minus-2> card with one <plus-0> card' },
+    {
+      id: 3,
+      limit: 2,
+      text: 'Replace one <plus-1> card with two <plus-0> "Move one of your character tokens backward one slot" cards'
+    },
+    { id: 4, limit: 1, text: 'Replace two <plus-0> cards with two <pierce> 3 <rolling> cards' },
+    { id: 5, limit: 1, text: 'Replace two <plus-0> cards with two <push> 2 <rolling> cards' },
+    { id: 6, limit: 1, text: 'Add one <plus-3> card' },
+    { id: 7, limit: 2, text: 'Add one <plus-2> <immobilize> card' },
+    { id: 8, limit: 1, text: 'Add two "<heal> 1, self" <rolling> cards' },
+    { id: 9, limit: 1, text: 'Ignore scenario effects and add one <plus-1> card' },
+    { id: 10, limit: 1, text: 'Ignore item <item-minus-1> effects and add one <plus-1> card' },
+    {
+      id: 11,
+      limit: 2,
+      text: 'Whenever you long rest, you may move one of your character tokens backward one slot'
+    },
+    {
+      id: 12,
+      limit: 1,
+      text: 'You may bring one additional <single-hand> item into each scenario'
+    },
+    {
+      id: 13,
+      limit: 1,
+      text: 'At the end of each scenario, you may discard up to two loot cards, except Random Item, to draw that many new loot cards'
+    }
+  ],
   geminate: [
     { id: 1, limit: 1, text: 'Replace one <minus-2> card with one <plus-0> card' },
     {

@@ -49,6 +49,7 @@ import MoveIcon from 'https://raw.githubusercontent.com/any2cards/worldhaven/mas
 import RangeIcon from 'https://raw.githubusercontent.com/any2cards/worldhaven/master/images/art/frosthaven/icons/general/fh-range-bw-icon.png';
 import RecoverIcon from 'https://raw.githubusercontent.com/any2cards/worldhaven/master/images/art/frosthaven/icons/general/fh-recover-card-color-icon.png';
 import ShieldIcon from 'https://raw.githubusercontent.com/any2cards/worldhaven/master/images/art/frosthaven/icons/general/fh-shield-bw-icon.png';
+import SingleHandIcon from 'https://raw.githubusercontent.com/any2cards/worldhaven/master/images/art/frosthaven/icons/general/fh-equip-slot-single-hand-bw-icon.png';
 import TargetIcon from 'https://raw.githubusercontent.com/any2cards/worldhaven/master/images/art/frosthaven/icons/general/fh-target-bw-icon.png';
 import TapIcon from 'https://raw.githubusercontent.com/any2cards/worldhaven/master/images/art/frosthaven/icons/general/fh-tap-card-color-icon.png';
 
@@ -111,6 +112,7 @@ export const modifiers: Record<Modifier, string> = {
   range: RangeIcon,
   recover: RecoverIcon,
   shield: ShieldIcon,
+  'single-hand': SingleHandIcon,
   target: TargetIcon,
   tap: TapIcon,
 
