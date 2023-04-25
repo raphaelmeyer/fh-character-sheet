@@ -9,9 +9,12 @@ export type AttackModifier =
   | 'plus-4';
 
 export type Condition =
+  | 'bless'
+  | 'curse'
   | 'disarm'
   | 'immobilize'
   | 'muddle'
+  | 'poison'
   | 'push'
   | 'regenerate'
   | 'rolling'
@@ -19,6 +22,7 @@ export type Condition =
 
 export type General =
   | 'attack'
+  | 'damage'
   | 'heal'
   | 'move'
   | 'range'
@@ -27,8 +31,8 @@ export type General =
   | 'tap'
   | 'target';
 
-export type Element = 'dark';
+export type Element = 'earth' | 'dark';
 
-export type Special = 'shadow' | 'time';
+export type Special = 'boneshaper' | 'shadow' | 'time';
 
 export type Modifier = AttackModifier | Condition | General | Element | Special;

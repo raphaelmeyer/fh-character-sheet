@@ -15,7 +15,11 @@ export const masteries: Record<Character, Masteries> = {
     first: 'Declare Fast for seven consecutive rounds',
     second: 'Never be targeted by an attack'
   },
-  boneshaper: { first: '', second: '' },
+  boneshaper: {
+    first: 'Kill at least fifteen of your summons',
+    second:
+      'Play a summon action on your first turn, have the summon kill at least six enemies, and keep it alive for the entire scenario'
+  },
   deathwalker: {
     first: 'Remove seven <shadow> in one round',
     second: 'Place or remove at least one <shadow> each round'

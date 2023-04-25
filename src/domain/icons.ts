@@ -28,15 +28,19 @@ import Plus2Icon from 'https://raw.githubusercontent.com/any2cards/worldhaven/ma
 import Plus3Icon from 'https://raw.githubusercontent.com/any2cards/worldhaven/master/images/art/frosthaven/icons/attack-modifiers/fh-plus-3-bw-icon.png';
 import Plus4Icon from 'https://raw.githubusercontent.com/any2cards/worldhaven/master/images/art/frosthaven/icons/attack-modifiers/fh-plus-4-bw-icon.png';
 
+import BlessIcon from 'https://raw.githubusercontent.com/any2cards/worldhaven/master/images/art/frosthaven/icons/conditions/fh-bless-bw-icon.png';
+import CurseIcon from 'https://raw.githubusercontent.com/any2cards/worldhaven/master/images/art/frosthaven/icons/conditions/fh-curse-bw-icon.png';
 import DisarmIcon from 'https://raw.githubusercontent.com/any2cards/worldhaven/master/images/art/frosthaven/icons/conditions/fh-disarm-bw-icon.png';
 import ImmobilizeIcon from 'https://raw.githubusercontent.com/any2cards/worldhaven/master/images/art/frosthaven/icons/conditions/fh-immobilize-bw-icon.png';
 import MuddleIcon from 'https://raw.githubusercontent.com/any2cards/worldhaven/master/images/art/frosthaven/icons/conditions/fh-muddle-bw-icon.png';
+import PoisonIcon from 'https://raw.githubusercontent.com/any2cards/worldhaven/master/images/art/frosthaven/icons/conditions/fh-poison-bw-icon.png';
 import PushIcon from 'https://raw.githubusercontent.com/any2cards/worldhaven/master/images/art/frosthaven/icons/conditions/fh-push-bw-icon.png';
 import RegenerateIcon from 'https://raw.githubusercontent.com/any2cards/worldhaven/master/images/art/frosthaven/icons/conditions/fh-regenerate-bw-icon.png';
 import RollingIcon from 'https://raw.githubusercontent.com/any2cards/worldhaven/master/images/art/frosthaven/icons/conditions/fh-rolling-bw-icon.png';
 import WoundIcon from 'https://raw.githubusercontent.com/any2cards/worldhaven/master/images/art/frosthaven/icons/conditions/fh-wound-bw-icon.png';
 
 import AttackIcon from 'https://raw.githubusercontent.com/any2cards/worldhaven/master/images/art/frosthaven/icons/general/fh-attack-bw-icon.png';
+import DamageIcon from 'https://raw.githubusercontent.com/any2cards/worldhaven/master/images/art/frosthaven/icons/general/fh-damage-bw-icon.png';
 import HealIcon from 'https://raw.githubusercontent.com/any2cards/worldhaven/master/images/art/frosthaven/icons/general/fh-heal-bw-icon.png';
 import MoveIcon from 'https://raw.githubusercontent.com/any2cards/worldhaven/master/images/art/frosthaven/icons/general/fh-move-bw-icon.png';
 import RangeIcon from 'https://raw.githubusercontent.com/any2cards/worldhaven/master/images/art/frosthaven/icons/general/fh-range-bw-icon.png';
@@ -46,6 +50,7 @@ import TargetIcon from 'https://raw.githubusercontent.com/any2cards/worldhaven/m
 import TapIcon from 'https://raw.githubusercontent.com/any2cards/worldhaven/master/images/art/frosthaven/icons/general/fh-tap-card-color-icon.png';
 
 import DarkIcon from 'https://raw.githubusercontent.com/any2cards/worldhaven/master/images/art/frosthaven/icons/elements/fh-dark-bw-icon.png';
+import EarthIcon from 'https://raw.githubusercontent.com/any2cards/worldhaven/master/images/art/frosthaven/icons/elements/fh-earth-bw-icon.png';
 
 import ShadowIcon from 'https://raw.githubusercontent.com/any2cards/worldhaven/master/images/art/frosthaven/icons/class/fh-deathwalker-shadow-bw-icon.png';
 import TimeIcon from 'https://raw.githubusercontent.com/any2cards/worldhaven/master/images/art/frosthaven/icons/class/fh-blinkblade-time-bw-icon.png';
@@ -81,15 +86,19 @@ export const modifiers: Record<Modifier, string> = {
   'plus-3': Plus3Icon,
   'plus-4': Plus4Icon,
 
+  bless: BlessIcon,
+  curse: CurseIcon,
   disarm: DisarmIcon,
   immobilize: ImmobilizeIcon,
   muddle: MuddleIcon,
+  poison: PoisonIcon,
   push: PushIcon,
   regenerate: RegenerateIcon,
   rolling: RollingIcon,
   wound: WoundIcon,
 
   attack: AttackIcon,
+  damage: DamageIcon,
   heal: HealIcon,
   move: MoveIcon,
   range: RangeIcon,
@@ -99,7 +108,9 @@ export const modifiers: Record<Modifier, string> = {
   tap: TapIcon,
 
   dark: DarkIcon,
+  earth: EarthIcon,
 
+  boneshaper: BoneshaperIcon,
   shadow: ShadowIcon,
   time: TimeIcon
 };

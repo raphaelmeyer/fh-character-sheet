@@ -56,7 +56,34 @@ export const perks: Record<Character, Perk[]> = {
     },
     { id: 11, limit: 1, text: 'Whenever you would gain <immobilize>, prevent the condition' }
   ],
-  boneshaper: [],
+  boneshaper: [
+    { id: 1, limit: 2, text: 'Replace one <minus-1> card with one <plus-0> <curse> card' },
+    { id: 2, limit: 2, text: 'Replace one <minus-1> card with one <plus-0> <poison> card' },
+    { id: 3, limit: 1, text: 'Replace one <minus-2> card with one <plus-0> card' },
+    {
+      id: 4,
+      limit: 3,
+      text: 'Replace one <plus-0> card with one <plus-1> "Kill the attacking summon to instead add <plus-4>" card'
+    },
+    { id: 5, limit: 2, text: 'Add three "<heal> 1, <target> <boneshaper>" <rolling> cards' },
+    { id: 6, limit: 3, text: 'Add one <plus-2> <earth> <dark> card' },
+    { id: 7, limit: 1, text: 'Ignore scenario effects and add two <plus-1> cards' },
+    {
+      id: 8,
+      limit: 1,
+      text: 'Immediately before each of your rests, you may kill one of your summons to perform <bless>, self'
+    },
+    {
+      id: 9,
+      limit: 1,
+      text: 'Once each scenario, when any character ally would become exhausted by suffering <damage>, you may suffer <damage> 2 to reduce their hit point value to 1 instead'
+    },
+    {
+      id: 10,
+      limit: 2,
+      text: 'At the start of each scenario, you may play a level 1 card from your hand to perform a summon action of the card'
+    }
+  ],
   deathwalker: [
     { id: 1, limit: 1, text: 'Remove two <minus-1> cards' },
     { id: 2, limit: 1, text: 'Replace one <minus-2> card with one <plus-0> card' },
