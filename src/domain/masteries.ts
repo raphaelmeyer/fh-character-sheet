@@ -25,5 +25,8 @@ export const masteries: Record<Character, Masteries> = {
     second: 'Place or remove at least one <shadow> each round'
   },
   drifter: { first: '', second: '' },
-  geminate: { first: '', second: '' }
+  geminate: {
+    first: 'Switch forms each round',
+    second: 'Lose at least one ability card each round'
+  }
 };

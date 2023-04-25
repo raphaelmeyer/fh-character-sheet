@@ -19,6 +19,7 @@ import FlamefruitIcon from 'https://raw.githubusercontent.com/any2cards/worldhav
 import RockrootIcon from 'https://raw.githubusercontent.com/any2cards/worldhaven/master/images/art/frosthaven/icons/loot/fh-rockroot-bw-icon.png';
 import SnowthistleIcon from 'https://raw.githubusercontent.com/any2cards/worldhaven/master/images/art/frosthaven/icons/loot/fh-snowthistle-bw-icon.png';
 
+import DoubleIcon from 'https://raw.githubusercontent.com/any2cards/worldhaven/master/images/art/frosthaven/icons/attack-modifiers/fh-2x-bw-icon.png';
 import ItemMinus1Icon from 'https://raw.githubusercontent.com/any2cards/worldhaven/master/images/art/frosthaven/icons/attack-modifiers/fh-minus-1-modifier-card-bw-icon.png';
 import Minus1Icon from 'https://raw.githubusercontent.com/any2cards/worldhaven/master/images/art/frosthaven/icons/attack-modifiers/fh-minus-1-bw-icon.png';
 import Minus2Icon from 'https://raw.githubusercontent.com/any2cards/worldhaven/master/images/art/frosthaven/icons/attack-modifiers/fh-minus-2-bw-icon.png';
@@ -29,10 +30,12 @@ import Plus3Icon from 'https://raw.githubusercontent.com/any2cards/worldhaven/ma
 import Plus4Icon from 'https://raw.githubusercontent.com/any2cards/worldhaven/master/images/art/frosthaven/icons/attack-modifiers/fh-plus-4-bw-icon.png';
 
 import BlessIcon from 'https://raw.githubusercontent.com/any2cards/worldhaven/master/images/art/frosthaven/icons/conditions/fh-bless-bw-icon.png';
+import BrittleIcon from 'https://raw.githubusercontent.com/any2cards/worldhaven/master/images/art/frosthaven/icons/conditions/fh-brittle-bw-icon.png';
 import CurseIcon from 'https://raw.githubusercontent.com/any2cards/worldhaven/master/images/art/frosthaven/icons/conditions/fh-curse-bw-icon.png';
 import DisarmIcon from 'https://raw.githubusercontent.com/any2cards/worldhaven/master/images/art/frosthaven/icons/conditions/fh-disarm-bw-icon.png';
 import ImmobilizeIcon from 'https://raw.githubusercontent.com/any2cards/worldhaven/master/images/art/frosthaven/icons/conditions/fh-immobilize-bw-icon.png';
 import MuddleIcon from 'https://raw.githubusercontent.com/any2cards/worldhaven/master/images/art/frosthaven/icons/conditions/fh-muddle-bw-icon.png';
+import PierceIcon from 'https://raw.githubusercontent.com/any2cards/worldhaven/master/images/art/frosthaven/icons/conditions/fh-pierce-bw-icon.png';
 import PoisonIcon from 'https://raw.githubusercontent.com/any2cards/worldhaven/master/images/art/frosthaven/icons/conditions/fh-poison-bw-icon.png';
 import PushIcon from 'https://raw.githubusercontent.com/any2cards/worldhaven/master/images/art/frosthaven/icons/conditions/fh-push-bw-icon.png';
 import RegenerateIcon from 'https://raw.githubusercontent.com/any2cards/worldhaven/master/images/art/frosthaven/icons/conditions/fh-regenerate-bw-icon.png';
@@ -51,6 +54,7 @@ import TapIcon from 'https://raw.githubusercontent.com/any2cards/worldhaven/mast
 
 import DarkIcon from 'https://raw.githubusercontent.com/any2cards/worldhaven/master/images/art/frosthaven/icons/elements/fh-dark-bw-icon.png';
 import EarthIcon from 'https://raw.githubusercontent.com/any2cards/worldhaven/master/images/art/frosthaven/icons/elements/fh-earth-bw-icon.png';
+import WildIcon from 'https://raw.githubusercontent.com/any2cards/worldhaven/master/images/art/frosthaven/icons/elements/fh-wild-bw-icon.png';
 
 import ShadowIcon from 'https://raw.githubusercontent.com/any2cards/worldhaven/master/images/art/frosthaven/icons/class/fh-deathwalker-shadow-bw-icon.png';
 import TimeIcon from 'https://raw.githubusercontent.com/any2cards/worldhaven/master/images/art/frosthaven/icons/class/fh-blinkblade-time-bw-icon.png';
@@ -77,6 +81,7 @@ export const resources: Record<Resource, string> = {
 };
 
 export const modifiers: Record<Modifier, string> = {
+  double: DoubleIcon,
   'item-minus-1': ItemMinus1Icon,
   'minus-1': Minus1Icon,
   'minus-2': Minus2Icon,
@@ -87,10 +92,12 @@ export const modifiers: Record<Modifier, string> = {
   'plus-4': Plus4Icon,
 
   bless: BlessIcon,
+  brittle: BrittleIcon,
   curse: CurseIcon,
   disarm: DisarmIcon,
   immobilize: ImmobilizeIcon,
   muddle: MuddleIcon,
+  pierce: PierceIcon,
   poison: PoisonIcon,
   push: PushIcon,
   regenerate: RegenerateIcon,
@@ -109,6 +116,7 @@ export const modifiers: Record<Modifier, string> = {
 
   dark: DarkIcon,
   earth: EarthIcon,
+  wild: WildIcon,
 
   boneshaper: BoneshaperIcon,
   shadow: ShadowIcon,

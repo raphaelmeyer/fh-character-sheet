@@ -1,4 +1,5 @@
 export type AttackModifier =
+  | 'double'
   | 'item-minus-1'
   | 'minus-1'
   | 'minus-2'
@@ -10,10 +11,12 @@ export type AttackModifier =
 
 export type Condition =
   | 'bless'
+  | 'brittle'
   | 'curse'
   | 'disarm'
   | 'immobilize'
   | 'muddle'
+  | 'pierce'
   | 'poison'
   | 'push'
   | 'regenerate'
@@ -31,7 +34,7 @@ export type General =
   | 'tap'
   | 'target';
 
-export type Element = 'earth' | 'dark';
+export type Element = 'earth' | 'dark' | 'wild';
 
 export type Special = 'boneshaper' | 'shadow' | 'time';
 

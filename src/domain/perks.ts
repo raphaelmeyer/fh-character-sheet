@@ -110,5 +110,34 @@ export const perks: Record<Character, Perk[]> = {
     }
   ],
   drifter: [],
-  geminate: []
+  geminate: [
+    { id: 1, limit: 1, text: 'Replace one <minus-2> card with one <plus-0> card' },
+    {
+      id: 2,
+      limit: 3,
+      text: 'Replace one <minus-1> card with one <plus-0> "consume <wild>: <wild>" card'
+    },
+    { id: 3, limit: 2, text: 'Replace one <plus-0> card with one <plus-1> <poison> card' },
+    { id: 4, limit: 2, text: 'Replace one <plus-0> card with one <plus-1> <wound> card' },
+    { id: 5, limit: 1, text: 'Replace two <plus-0> cards with two <pierce> 3 <rolling> cards' },
+    { id: 6, limit: 1, text: 'Add two <plus-1> <push> 3 cards' },
+    { id: 7, limit: 1, text: 'Add one <double> "<brittle>, self" card' },
+    { id: 8, limit: 2, text: 'Add one <plus-1> "<regenerate>, self" <rolling> card' },
+    { id: 9, limit: 1, text: 'Ignore scenario effects' },
+    {
+      id: 10,
+      limit: 1,
+      text: 'Whenever you short rest, you may remove one negative condition from one ally within <range> 3'
+    },
+    {
+      id: 11,
+      limit: 1,
+      text: 'Once each scenario, when you would give yourself a negative condition, prevent the condition'
+    },
+    {
+      id: 12,
+      limit: 2,
+      text: 'Whenever you perform an action with a list icon, you may discard one card to <recover> one card from your discard pile of equal or lower level'
+    }
+  ]
 };
